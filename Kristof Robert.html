@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kristof Robert — Sports Massage & NLP Coaching</title>
+
+<!-- Bilingual EN/FR. All translatable strings live in the I18N dictionary at the bottom of this file, keyed by data-i18n="...". Language persists in localStorage. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ——— Tokens (palette + type) ——— */
+  :root{
+    --cream:#FFF7EC;
+    --cream-2:#FFE9C7;
+    --ink:#1A1530;
+    --ink-soft:#342C54;
+    --ink-mute:#6B6392;
+    --sage:#17B890;
+    --sage-deep:#0E7C6B;
+    --terracotta:#FF5B4A;
+    --terracotta-soft:#FFB199;
+    --accent:#FFB72B;
+    --violet:#7C3AED;
+    --line:rgba(26,21,48,0.14);
+
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter Tight", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+
+    --maxw:1240px;
+    --pad:clamp(20px, 4vw, 56px);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+
+  ::selection{background:var(--terracotta);color:var(--cream);}
+
+  /* ——— Type scale ——— */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:18px;height:1px;background:var(--ink-mute);display:inline-block;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:400;
+    letter-spacing:-0.01em;
+    margin:0;
+    line-height:1.05;
+    text-wrap:balance;
+  }
+  h1{font-size:clamp(58px, 11vw, 168px);font-weight:400;letter-spacing:-0.03em;}
+  h2{font-size:clamp(34px, 4.6vw, 64px);}
+  h3{font-size:clamp(24px, 2.4vw, 34px);}
+  p{margin:0;text-wrap:pretty;}
+
+  .italic{font-style:italic;color:var(--ink-soft);}
+
+  /* ——— Layout shells ——— */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  section{position:relative;}
+  .section-pad{padding-top:clamp(80px, 10vw, 140px);padding-bottom:clamp(80px, 10vw, 140px);}
+
+  /* ——— Nav ——— */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px var(--pad);
+    display:flex;align-items:center;justify-content:space-between;
+    transition:background .4s ease, backdrop-filter .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(245,240,232,0.82);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom-color:var(--line);
+  }
+  .brand{
+    font-family:var(--serif);
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;
+  }
+  .brand .mark{
+    width:32px;height:32px;border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 30%, var(--terracotta) 0 42%, transparent 43%),
+      radial-gradient(circle at 75% 75%, var(--sage) 0 45%, transparent 46%),
+      var(--accent);
+    border:1px solid var(--line);
+    box-shadow:0 4px 12px -4px rgba(255,91,74,0.5);
+  }
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{
+    font-size:13.5px;letter-spacing:0.02em;text-decoration:none;color:var(--ink);
+    position:relative;padding:6px 0;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);
+    transition:width .35s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-size:13px;padding:10px 18px;border-radius:999px;
+    background:var(--ink);color:var(--cream);border:none;
+    letter-spacing:0.04em;
+    transition:background .3s ease, transform .3s ease;
+  }
+  .nav-cta:hover{background:var(--sage-deep);transform:translateY(-1px);}
+  .lang-toggle{
+    background:transparent;border:1px solid var(--line);
+    padding:6px 10px;border-radius:999px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
+    display:inline-flex;align-items:center;gap:6px;color:var(--ink-mute);
+    transition:border-color .3s ease, color .3s ease;
+  }
+  .lang-toggle:hover{border-color:var(--ink);color:var(--ink);}
+  .lang-toggle .lang-opt{transition:color .3s ease;}
+  .lang-toggle .lang-opt.active{color:var(--ink);font-weight:500;}
+  .lang-toggle .lang-sep{opacity:0.4;}
+  .nav-links .mobile-hide{display:inline;}
+  @media (max-width:820px){
+    .nav-links{gap:18px;}
+    .nav-links .mobile-hide{display:none;}
+  }
+
+  /* ——— HERO ——— */
+  .hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:clamp(24px,5vw,80px);
+    align-items:end;
+    padding:140px var(--pad) 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-20vw;top:-20vw;
+    width:80vw;height:80vw;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,91,74,0.38), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:-15vw;bottom:-30vw;
+    width:60vw;height:60vw;
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(23,184,144,0.36), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .hero-copy{position:relative;z-index:2;}
+  .hero h1{margin-top:28px;}
+  .hero h1 .amp{
+    font-style:italic;font-weight:300;color:var(--terracotta);
+    font-family:var(--serif);
+  }
+  .hero h1 .line2{display:block;color:var(--sage-deep);font-style:italic;font-weight:400;}
+  /* Giant name block */
+  .name-block{
+    margin:0 0 18px;
+    font-family:var(--serif);
+    font-weight:500;
+    line-height:0.88;
+    letter-spacing:-0.04em;
+    font-size:clamp(72px, 14vw, 220px);
+    color:var(--ink);
+    text-wrap:balance;
+  }
+  .name-block .first{display:block;color:var(--ink);}
+  .name-block .last{
+    display:block;
+    font-style:italic;
+    font-weight:400;
+    background:linear-gradient(100deg, var(--terracotta) 0%, var(--accent) 50%, var(--sage) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero-sub{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(22px, 2.6vw, 36px);
+    color:var(--ink-soft);
+    margin-top:10px;
+    line-height:1.2;
+  }
+  .hero-sub .pill{
+    display:inline-block;
+    padding:2px 14px;
+    border-radius:999px;
+    background:var(--accent);
+    color:var(--ink);
+    font-style:normal;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:0.6em;
+    letter-spacing:0.01em;
+    vertical-align:middle;
+    margin:0 4px;
+  }
+  .hero-sub .pill.green{background:var(--sage);color:var(--cream);}
+  .hero-lead{
+    max-width:46ch;margin-top:28px;
+    font-size:clamp(16px,1.2vw,19px);
+    color:var(--ink-soft);
+  }
+  .hero-cta-row{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:16px 26px;border-radius:999px;
+    font-size:14px;letter-spacing:0.04em;
+    text-decoration:none;border:1px solid transparent;
+    transition:transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:hover{background:var(--sage-deep);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+  .btn .arrow{transition:transform .3s ease;}
+  .btn:hover .arrow{transform:translateX(4px);}
+
+  .hero-meta{
+    margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:28px;
+  }
+  .hero-meta div{font-size:13px;color:var(--ink-mute);line-height:1.4;}
+  .hero-meta strong{display:block;color:var(--ink);font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:4px;letter-spacing:-0.01em;}
+
+  .hero-portrait{
+    position:relative;z-index:2;
+    aspect-ratio:4/5;
+    width:100%;max-width:560px;justify-self:end;
+    border-radius:280px 280px 24px 24px;
+    overflow:hidden;
+    background:var(--cream-2);
+    box-shadow:0 40px 80px -40px rgba(44,42,38,0.45);
+  }
+  .hero-portrait img{
+    width:100%;height:100%;object-fit:cover;object-position:center 18%;
+    transition:transform .8s cubic-bezier(.2,.6,.2,1);
+  }
+  .hero-portrait:hover img{transform:scale(1.03);}
+  .hero-portrait .badge{
+    position:absolute;left:20px;bottom:20px;
+    background:rgba(245,240,232,0.92);
+    backdrop-filter:blur(8px);
+    border-radius:999px;padding:10px 16px;
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-portrait .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px rgba(90,107,79,0.2);}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:120px;}
+    .hero-portrait{order:-1;justify-self:stretch;max-width:none;border-radius:180px 180px 20px 20px;}
+  }
+
+  /* ——— Marquee credentials ——— */
+  .marquee{
+    overflow:hidden;
+    border-block:1px solid var(--line);
+    background:var(--cream-2);
+    padding:22px 0;
+  }
+  .marquee-track{
+    display:flex;gap:60px;white-space:nowrap;
+    animation:marquee 38s linear infinite;
+    font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-soft);
+  }
+  [lang="fr"] .marquee-track{font-size:18px;}
+  .marquee-track span{display:inline-flex;align-items:center;gap:60px;}
+  .marquee-track .sep{color:var(--terracotta);font-style:normal;}
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ——— About ——— */
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,6vw,100px);align-items:start;
+  }
+  .about-lead{
+    font-family:var(--serif);
+    font-size:clamp(26px,2.6vw,38px);
+    line-height:1.25;
+    font-weight:300;
+    color:var(--ink);
+    margin-bottom:28px;
+    text-wrap:balance;
+  }
+  .about-lead em{color:var(--terracotta);font-style:italic;}
+  .about-body p + p{margin-top:18px;}
+  .about-body{color:var(--ink-soft);max-width:56ch;}
+  .creds{
+    margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;
+    border-top:1px solid var(--line);
+  }
+  .creds li{
+    list-style:none;padding:18px 0;
+    border-bottom:1px solid var(--line);
+    display:flex;gap:14px;align-items:baseline;
+    font-size:14px;
+  }
+  .creds li:nth-child(odd){padding-right:18px;}
+  .creds li:nth-child(even){padding-left:18px;border-left:1px solid var(--line);}
+  .creds .num{font-family:var(--mono);font-size:11px;color:var(--terracotta);letter-spacing:0.1em;}
+  @media (max-width:780px){
+    .about-grid{grid-template-columns:1fr;}
+    .creds{grid-template-columns:1fr;}
+    .creds li:nth-child(even){border-left:none;padding-left:0;}
+  }
+
+  /* ——— Explainers (what is X?) ——— */
+  .explainers{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,32px);
+    margin-top:60px;
+  }
+  .explainer{
+    padding:44px 40px;
+    border-radius:28px;
+    position:relative;overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .explainer.body{background:linear-gradient(165deg, #FFE9C7 0%, #FFD089 100%);}
+  .explainer.mind{background:linear-gradient(165deg, #C8F2E3 0%, #8BE0C8 100%);}
+  .explainer .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:7px 14px;border-radius:999px;
+    background:var(--ink);color:var(--cream);
+    margin-bottom:22px;
+  }
+  .explainer.mind .tag{background:var(--sage-deep);}
+  .explainer h3{
+    font-family:var(--serif);font-size:clamp(30px, 3.2vw, 44px);
+    font-weight:500;line-height:1.05;margin-bottom:10px;color:var(--ink);
+    letter-spacing:-0.02em;
+  }
+  .explainer .what{
+    font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink-soft);
+    margin-bottom:22px;line-height:1.35;
+    text-wrap:balance;
+  }
+  .explainer p{color:var(--ink-soft);font-size:15.5px;line-height:1.65;}
+  .explainer p + p{margin-top:14px;}
+  .explainer .abbr{
+    display:inline-block;padding:1px 8px;border-radius:6px;
+    background:rgba(26,21,48,0.08);font-family:var(--mono);font-size:0.85em;
+    letter-spacing:0.02em;color:var(--ink);
+  }
+  .explainer .means{
+    margin-top:26px;padding-top:20px;
+    border-top:1px dashed rgba(26,21,48,0.2);
+    font-size:14px;color:var(--ink);display:grid;gap:10px;
+  }
+  .explainer .means .row{display:flex;gap:12px;align-items:baseline;}
+  .explainer .means .row strong{font-family:var(--serif);font-style:italic;font-weight:500;font-size:17px;flex:none;min-width:110px;}
+  @media (max-width:820px){
+    .explainers{grid-template-columns:1fr;}
+  }
+
+  /* ——— Services (two pillars) ——— */
+  .pillars{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,32px);
+    margin-top:60px;
+  }
+  .pillar{
+    position:relative;padding:48px 40px 40px;
+    border-radius:28px;overflow:hidden;
+    transition:transform .5s ease, box-shadow .5s ease;
+    min-height:520px;
+    display:flex;flex-direction:column;
+  }
+  .pillar:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(44,42,38,0.35);}
+  .pillar.body{background:linear-gradient(155deg, #FFB72B 0%, var(--terracotta) 65%, #E63946 100%);color:var(--cream);}
+  .pillar.mind{background:linear-gradient(155deg, #22D3AA 0%, var(--sage-deep) 55%, #0F3A52 100%);color:var(--cream);}
+  .pillar .num{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.8;}
+  .pillar h3{margin:14px 0 6px;font-size:clamp(30px,3vw,44px);font-weight:400;}
+  .pillar .sub{font-family:var(--serif);font-style:italic;opacity:0.9;font-size:20px;margin-bottom:26px;}
+  .pillar p{font-size:15px;opacity:0.94;max-width:42ch;}
+  .pillar ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:10px;}
+  .pillar ul li{font-size:14px;display:flex;gap:12px;align-items:flex-start;opacity:0.94;}
+  .pillar ul li::before{
+    content:"";flex:none;margin-top:7px;
+    width:6px;height:6px;border-radius:50%;background:var(--cream);
+  }
+  .pillar .who{
+    margin-top:auto;padding-top:28px;
+    border-top:1px solid rgba(245,240,232,0.32);
+    font-size:13px;letter-spacing:0.02em;opacity:0.9;
+  }
+  .pillar .who strong{font-family:var(--serif);font-style:italic;font-weight:400;display:block;font-size:18px;margin-bottom:4px;opacity:1;}
+  .pillar .glyph{
+    position:absolute;right:-40px;top:-40px;width:200px;height:200px;
+    border-radius:50%;
+    background:rgba(245,240,232,0.14);
+    pointer-events:none;
+  }
+  .pillar .glyph::after{
+    content:"";position:absolute;inset:40px;border-radius:50%;
+    border:1px solid rgba(245,240,232,0.3);
+  }
+  @media (max-width:820px){
+    .pillars{grid-template-columns:1fr;}
+  }
+
+  /* ——— Approach ——— */
+  .approach{
+    background:linear-gradient(135deg, var(--ink) 0%, #2A1F5C 50%, var(--violet) 100%);color:var(--cream);
+    border-radius:32px;margin:0 var(--pad);
+    padding:clamp(60px,8vw,110px) clamp(30px,6vw,90px);
+    position:relative;overflow:hidden;
+  }
+  .approach::before{
+    content:"";position:absolute;right:-10%;top:-40%;width:60%;aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 50%, rgba(193,123,92,0.32), transparent 70%);
+  }
+  .approach-inner{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;}
+  .approach .eyebrow{color:rgba(245,240,232,0.7);}
+  .approach .eyebrow::before{background:rgba(245,240,232,0.5);}
+  .approach h2{color:var(--cream);margin-top:18px;max-width:18ch;}
+  .approach h2 em{color:var(--terracotta-soft);font-style:italic;}
+  .approach-steps{
+    margin-top:60px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;
+  }
+  .step{position:relative;padding-top:36px;}
+  .step::before{
+    content:"";position:absolute;left:0;top:0;width:40px;height:1px;background:var(--terracotta-soft);
+  }
+  .step .num{font-family:var(--mono);font-size:12px;color:var(--terracotta-soft);letter-spacing:0.16em;}
+  .step h3{font-family:var(--serif);font-size:26px;font-weight:400;margin:10px 0 12px;color:var(--cream);}
+  .step p{font-size:15px;color:rgba(245,240,232,0.8);max-width:34ch;}
+  @media (max-width:820px){
+    .approach-steps{grid-template-columns:1fr;gap:28px;}
+    .approach{margin:0 16px;}
+  }
+
+  /* ——— Testimonials ——— */
+  .testi-grid{
+    margin-top:60px;
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;
+  }
+  .testi{
+    background:var(--cream-2);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:40px 32px;
+    display:flex;flex-direction:column;gap:22px;
+    transition:transform .4s ease, background .4s ease;
+  }
+  .testi:hover{transform:translateY(-4px);background:#FFD89A;}
+  .testi .quote{
+    font-family:var(--serif);
+    font-size:22px;
+    font-style:italic;
+    font-weight:300;
+    line-height:1.35;
+    color:var(--ink);
+    text-wrap:pretty;
+  }
+  .testi .quote::before{
+    content:"“";font-family:var(--serif);font-size:60px;line-height:0;
+    color:var(--terracotta);display:block;margin-bottom:18px;
+  }
+  .testi .who{
+    margin-top:auto;font-size:13px;color:var(--ink-mute);
+    display:flex;align-items:center;gap:12px;
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  .testi .avatar{
+    width:38px;height:38px;border-radius:50%;
+    background:linear-gradient(135deg,var(--terracotta),var(--accent),var(--sage));
+    flex:none;
+  }
+  .testi .who strong{display:block;color:var(--ink);font-weight:500;font-size:14px;}
+  @media (max-width:900px){
+    .testi-grid{grid-template-columns:1fr;}
+  }
+
+  /* ——— Instagram CTA ——— */
+  .insta{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;
+  }
+  .insta-visual{
+    aspect-ratio:1;width:100%;max-width:460px;
+    background:
+      linear-gradient(135deg, rgba(193,123,92,0.15), rgba(90,107,79,0.18)),
+      repeating-linear-gradient(45deg, var(--cream-2) 0 14px, #E5DCC8 14px 28px);
+    border-radius:36px;
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:12px;color:var(--ink-mute);letter-spacing:0.12em;text-transform:uppercase;
+    border:1px solid var(--line);
+  }
+  .insta-visual .ig-icon{
+    width:120px;height:120px;border-radius:30px;
+    background:linear-gradient(135deg, var(--terracotta) 0%, #9C5B8E 50%, var(--sage) 100%);
+    position:relative;box-shadow:0 20px 40px -15px rgba(44,42,38,0.4);
+  }
+  .insta-visual .ig-icon::before,
+  .insta-visual .ig-icon::after{
+    content:"";position:absolute;border-radius:50%;border:6px solid var(--cream);
+  }
+  .insta-visual .ig-icon::before{inset:24px;}
+  .insta-visual .ig-icon::after{
+    width:14px;height:14px;top:18px;right:18px;
+    border:0;background:var(--cream);
+  }
+  .insta-copy h2 em{color:var(--terracotta);font-style:italic;}
+  .insta-copy p{max-width:44ch;margin-top:20px;color:var(--ink-soft);}
+  .insta-handle{
+    font-family:var(--mono);font-size:13px;color:var(--ink-mute);
+    margin-top:24px;display:block;letter-spacing:0.04em;
+  }
+  .insta-copy .btn{margin-top:18px;}
+  @media (max-width:820px){
+    .insta{grid-template-columns:1fr;}
+    .insta-visual{max-width:none;aspect-ratio:16/10;}
+  }
+
+  /* ——— Contact ——— */
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,5vw,80px);
+    margin-top:50px;align-items:start;
+  }
+  .contact-info h3{font-size:clamp(26px,2.4vw,34px);margin-bottom:18px;}
+  .contact-info .detail{
+    padding:22px 0;border-bottom:1px solid var(--line);
+  }
+  .contact-info .detail:first-of-type{border-top:1px solid var(--line);}
+  .contact-info .label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
+  .contact-info .value{
+    font-family:var(--serif);font-size:22px;margin-top:6px;display:block;text-decoration:none;color:var(--ink);
+    transition:color .3s ease;
+  }
+  .contact-info .value:hover{color:var(--terracotta);}
+
+  form{
+    background:var(--cream-2);
+    border-radius:24px;padding:clamp(24px,3vw,40px);
+    border:1px solid var(--line);
+    display:grid;gap:18px;
+  }
+  .field{display:flex;flex-direction:column;gap:8px;position:relative;}
+  .field label{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);
+  }
+  .field input,.field select,.field textarea{
+    font-family:var(--sans);font-size:16px;color:var(--ink);
+    background:transparent;border:none;border-bottom:1px solid var(--line);
+    padding:10px 0 12px;outline:none;border-radius:0;
+    transition:border-color .3s ease;
+  }
+  .field textarea{min-height:110px;resize:vertical;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--ink);}
+  .field.invalid input,.field.invalid select,.field.invalid textarea{border-bottom-color:var(--terracotta);}
+  .field .err{
+    color:var(--terracotta);font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
+    display:none;
+  }
+  .field.invalid .err{display:block;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:640px){.field-row{grid-template-columns:1fr;}}
+  form .submit-row{display:flex;align-items:center;gap:18px;margin-top:10px;flex-wrap:wrap;}
+  .form-note{font-size:12px;color:var(--ink-mute);}
+  .form-success{
+    display:none;background:var(--sage);color:var(--cream);padding:16px 20px;border-radius:14px;
+    font-size:14px;
+  }
+  .form-success.show{display:block;animation:fadeUp .5s ease;}
+
+  @media (max-width:820px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+
+  /* ——— Footer ——— */
+  footer{
+    background:var(--ink);
+    color:rgba(245,240,232,0.7);
+    padding:60px var(--pad) 40px;
+    margin-top:80px;
+  }
+  .footer-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;align-items:start;}
+  footer .brand{color:var(--cream);}
+  footer .brand .mark{border-color:rgba(245,240,232,0.2);}
+  footer p{font-size:14px;max-width:40ch;margin-top:16px;line-height:1.6;}
+  footer h4{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,240,232,0.5);font-weight:500;margin-bottom:16px;}
+  footer a{color:rgba(245,240,232,0.85);text-decoration:none;display:block;font-size:14px;padding:4px 0;transition:color .3s ease;}
+  footer a:hover{color:var(--terracotta-soft);}
+  .footer-bottom{
+    max-width:var(--maxw);margin:60px auto 0;padding-top:24px;
+    border-top:1px solid rgba(245,240,232,0.12);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    font-size:12px;color:rgba(245,240,232,0.5);font-family:var(--mono);letter-spacing:0.08em;
+  }
+  @media (max-width:780px){.footer-inner{grid-template-columns:1fr;gap:30px;}}
+
+  /* ——— Scroll reveal ——— */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d2{transition-delay:.12s;}
+  .reveal.d3{transition-delay:.22s;}
+  .reveal.d4{transition-delay:.32s;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="#top" class="brand" aria-label="Kristof Robert home">
+    <span class="mark" aria-hidden="true"></span>
+    <span>Kristof Robert</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about" class="mobile-hide" data-i18n="nav.about">About</a>
+    <a href="#what" class="mobile-hide" data-i18n="nav.what">What is it?</a>
+    <a href="#services" class="mobile-hide" data-i18n="nav.services">Services</a>
+    <a href="#approach" class="mobile-hide" data-i18n="nav.approach">Approach</a>
+    <a href="#contact" class="mobile-hide" data-i18n="nav.contact">Contact</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+      <span class="lang-opt" data-lang-opt="en">EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-opt" data-lang-opt="fr">FR</span>
+    </button>
+    <button class="nav-cta" data-i18n="nav.cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a session</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Montréal · Québec</span>
+    <h1 class="name-block reveal d2">
+      <span class="first">Kristof</span>
+      <span class="last">Robert.</span>
+    </h1>
+    <p class="hero-sub reveal d2" data-i18n="hero.sub" data-i18n-html>
+      <span class="pill">Sports Massage</span> for the body,
+      <span class="pill green">NLP / PNL</span> for the mind.
+    </p>
+    <p class="hero-lead reveal d3" data-i18n="hero.lead">
+      Kristof Robert is a sports massage therapist and certified NLP coach.
+      He works with athletes, high performers, and anyone carrying tension —
+      physical or mental — into the life they want to live.
+    </p>
+    <div class="hero-cta-row reveal d4">
+      <a href="#contact" class="btn btn-primary">
+        <span data-i18n="hero.cta1">Book a session</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Explore services</a>
+    </div>
+    <div class="hero-meta reveal d4">
+      <div><strong>8+</strong><span data-i18n="hero.meta1">Years practicing</span></div>
+      <div><strong>2</strong><span data-i18n="hero.meta2">Modalities, one practice</span></div>
+      <div><strong>600+</strong><span data-i18n="hero.meta3">Sessions delivered</span></div>
+    </div>
+  </div>
+
+  <div class="hero-portrait reveal d2">
+    <!-- Portrait of Kristof. Replace kristof.jpg with a higher-res version anytime. -->
+    <img src="kristof.jpg" alt="Portrait of Kristof Robert" id="heroImg"/>
+    <div class="badge"><span class="dot"></span> <span data-i18n="hero.badge">Now booking · Spring 2026</span></div>
+  </div>
+</section>
+
+<!-- ============ CREDENTIALS MARQUEE ============ -->
+<div class="marquee" aria-hidden="true" data-i18n-target="marquee">
+  <div class="marquee-track">
+    <span>Certified NLP Practitioner <em class="sep">✦</em> Sports Massage Therapist <em class="sep">✦</em> Deep Tissue <em class="sep">✦</em> Myofascial Release <em class="sep">✦</em> Mindset Coaching <em class="sep">✦</em> Injury Recovery <em class="sep">✦</em> Peak Performance <em class="sep">✦</em></span>
+    <span>Certified NLP Practitioner <em class="sep">✦</em> Sports Massage Therapist <em class="sep">✦</em> Deep Tissue <em class="sep">✦</em> Myofascial Release <em class="sep">✦</em> Mindset Coaching <em class="sep">✦</em> Injury Recovery <em class="sep">✦</em> Peak Performance <em class="sep">✦</em></span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section-pad wrap">
+  <div class="about-grid">
+    <div>
+      <span class="eyebrow reveal" data-i18n="about.eyebrow">01 — About</span>
+      <h2 class="reveal d2" style="margin-top:18px;" data-i18n="about.h2" data-i18n-html>The whole person, <em class="italic" style="color:var(--terracotta);">not the symptom.</em></h2>
+    </div>
+    <div>
+      <p class="about-lead reveal" data-i18n="about.lead" data-i18n-html>
+        I believe the body and mind aren't separate clients — they're the same one,
+        asking for <em>attention</em> in two different languages.
+      </p>
+      <div class="about-body reveal d2">
+        <p data-i18n="about.p1">
+          I started in sports massage working with athletes who kept coming back with the same injuries.
+          The tissue would heal, but the patterns didn't. That's what led me to NLP — because fascia
+          holds stories, and the nervous system learns them faster than we think.
+        </p>
+        <p data-i18n="about.p2">
+          Today I work with two tools: my hands and a structured conversation. Some clients come for
+          the table. Some for the chair. Most, eventually, try both. The goal isn't relaxation or
+          mindset hacks — it's coherence between what your body is doing and what your life is asking of it.
+        </p>
+      </div>
+
+      <ul class="creds reveal d3">
+        <li><span class="num">01</span><span data-i18n="about.cred1" data-i18n-html><strong>Certified NLP Practitioner</strong> — Richard Bandler lineage</span></li>
+        <li><span class="num">02</span><span data-i18n="about.cred2" data-i18n-html><strong>Sports Massage Therapist</strong> — FQM registered</span></li>
+        <li><span class="num">03</span><span data-i18n="about.cred3" data-i18n-html><strong>Deep Tissue &amp; Myofascial</strong> — 8+ years on the table</span></li>
+        <li><span class="num">04</span><span data-i18n="about.cred4" data-i18n-html><strong>Performance Coaching</strong> — athletes &amp; founders</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPLAINERS — What is Sports Massage & NLP/PNL? ============ -->
+<section id="what" class="section-pad wrap">
+  <div style="max-width:720px;">
+    <span class="eyebrow reveal" data-i18n="what.eyebrow">02 — The two modalities</span>
+    <h2 class="reveal d2" style="margin-top:18px;" data-i18n="what.h2" data-i18n-html>So — what <em class="italic" style="color:var(--terracotta);">exactly</em> is it?</h2>
+    <p class="reveal d3" style="margin-top:22px;color:var(--ink-soft);max-width:56ch;" data-i18n="what.lead">
+      Two words you'll see a lot around here. Here's the plain-language version of what they mean and what they actually do for you.
+    </p>
+  </div>
+
+  <div class="explainers">
+    <!-- SPORTS MASSAGE -->
+    <article class="explainer body reveal">
+      <span class="tag" data-i18n="what.tag1">For the body</span>
+      <h3 data-i18n="what.h3a">Sports Massage</h3>
+      <p class="what" data-i18n="what.whata" data-i18n-html>
+        Targeted, deep-tissue bodywork built around how <em>muscles, fascia, and nerves</em> actually move — not a spa rubdown.
+      </p>
+      <p data-i18n="what.pa1">
+        It blends deep tissue, trigger-point therapy, myofascial release and active stretching. Pressure is firm and purposeful — we work where tension, scar tissue or compensation patterns are restricting you.
+      </p>
+      <p data-i18n="what.pa2">
+        The aim isn't just to feel good for an hour. It's to release chronic holding, restore range of motion, speed up recovery between training sessions, and prevent the small issues that turn into injuries.
+      </p>
+      <div class="means">
+        <div class="row"><strong data-i18n="what.meansLabel1">Good for</strong><span data-i18n="what.meansA1">Athletes, runners, climbers, desk-bound bodies with stiff necks, anyone recovering from a strain.</span></div>
+        <div class="row"><strong data-i18n="what.meansLabel2">A session feels</strong><span data-i18n="what.meansA2">Intense in places, specific, then noticeably looser afterward — often for days.</span></div>
+      </div>
+    </article>
+
+    <!-- NLP / PNL -->
+    <article class="explainer mind reveal d2">
+      <span class="tag" data-i18n="what.tag2">For the mind</span>
+      <h3 data-i18n="what.h3b" data-i18n-html>NLP <span class="abbr">EN</span> / PNL <span class="abbr">FR</span></h3>
+      <p class="what" data-i18n="what.whatb" data-i18n-html>
+        Same thing, two languages: <em>Neuro-Linguistic Programming</em> in English, <em>Programmation Neuro-Linguistique</em> en français.
+      </p>
+      <p data-i18n="what.pb1">
+        NLP is a practical toolkit for how language and thought patterns shape your behaviour — the internal dialogue, the images you run on repeat, the beliefs you picked up somewhere and never questioned.
+      </p>
+      <p data-i18n="what.pb2">
+        In a session we map the pattern that's keeping you stuck, then use structured techniques — reframing, anchoring, timeline work — to reprogram it. It's a coaching approach, not therapy: we work forward, on outcomes.
+      </p>
+      <div class="means">
+        <div class="row"><strong data-i18n="what.meansLabel1">Good for</strong><span data-i18n="what.meansB1">Stuck goals, performance anxiety, limiting beliefs, stress loops, decisions you can't seem to make.</span></div>
+        <div class="row"><strong data-i18n="what.meansLabel2">A session feels</strong><span data-i18n="what.meansB2">Like a focused conversation with exercises — structured, surprisingly concrete, and rarely what you expected.</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="section-pad wrap">
+  <div style="max-width:720px;">
+    <span class="eyebrow reveal" data-i18n="services.eyebrow">03 — Services</span>
+    <h2 class="reveal d2" style="margin-top:18px;" data-i18n="services.h2" data-i18n-html>Two practices, <em class="italic" style="color:var(--sage);">one continuum.</em></h2>
+    <p class="reveal d3" style="margin-top:22px;color:var(--ink-soft);max-width:56ch;" data-i18n="services.lead">
+      You can book either modality on its own, or combine them into an integrated program.
+      Most clients find that the work compounds when body and mind are addressed together.
+    </p>
+  </div>
+
+  <div class="pillars">
+    <!-- PILLAR 1 — Sports Massage -->
+    <article class="pillar body reveal">
+      <div class="glyph" aria-hidden="true"></div>
+      <span class="num" data-i18n="pillar1.num">Pillar 01 — Body</span>
+      <h3 data-i18n="pillar1.h3">Sports Massage Therapy</h3>
+      <p class="sub" data-i18n="pillar1.sub">Recovery, resilience, and range of motion.</p>
+      <p data-i18n="pillar1.body">
+        Targeted manual therapy for athletes and active people. Deep tissue, trigger point,
+        and myofascial work to release chronic tension, accelerate recovery, and keep you
+        performing without breaking down.
+      </p>
+      <ul>
+        <li data-i18n="pillar1.li1">Post-training recovery &amp; pre-competition prep</li>
+        <li data-i18n="pillar1.li2">Injury rehabilitation &amp; prevention</li>
+        <li data-i18n="pillar1.li3">Chronic tension and postural imbalances</li>
+        <li data-i18n="pillar1.li4">Performance optimization for endurance &amp; strength athletes</li>
+      </ul>
+      <div class="who">
+        <strong data-i18n="pillar1.whoLabel">Who it's for</strong>
+        <span data-i18n="pillar1.who">Athletes, weekend warriors, desk workers with bodies that carry more than they signed up for.</span>
+      </div>
+    </article>
+
+    <!-- PILLAR 2 — NLP Coaching -->
+    <article class="pillar mind reveal d2">
+      <div class="glyph" aria-hidden="true"></div>
+      <span class="num" data-i18n="pillar2.num">Pillar 02 — Mind</span>
+      <h3 data-i18n="pillar2.h3">NLP Coaching</h3>
+      <p class="sub" data-i18n="pillar2.sub">Rewire the patterns running underneath.</p>
+      <p data-i18n="pillar2.body">
+        Neuro-Linguistic Programming is a structured approach to how language, behaviour,
+        and thought patterns shape your life. We work on limiting beliefs, emotional
+        regulation, and the goals that keep slipping just out of reach.
+      </p>
+      <ul>
+        <li data-i18n="pillar2.li1">Limiting beliefs &amp; self-sabotage patterns</li>
+        <li data-i18n="pillar2.li2">Emotional regulation &amp; stress response</li>
+        <li data-i18n="pillar2.li3">Goal achievement &amp; behavioural change</li>
+        <li data-i18n="pillar2.li4">Peak performance mindset for athletes &amp; founders</li>
+      </ul>
+      <div class="who">
+        <strong data-i18n="pillar2.whoLabel">Who it's for</strong>
+        <span data-i18n="pillar2.who">People who know what they want but keep hitting the same internal wall trying to get there.</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section id="approach" class="section-pad">
+  <div class="approach">
+    <div class="approach-inner">
+      <span class="eyebrow reveal" data-i18n="approach.eyebrow">04 — Approach</span>
+      <h2 class="reveal d2" data-i18n="approach.h2" data-i18n-html>Tension in the tissue is <em>tension in the story.</em></h2>
+      <div class="approach-steps">
+        <div class="step reveal">
+          <span class="num" data-i18n="approach.s1num">Step 01</span>
+          <h3 data-i18n="approach.s1h">Listen</h3>
+          <p data-i18n="approach.s1p">We start with a conversation and a read of the body. Where are you holding? What's been repeating? What do you actually want out of this?</p>
+        </div>
+        <div class="step reveal d2">
+          <span class="num" data-i18n="approach.s2num">Step 02</span>
+          <h3 data-i18n="approach.s2h">Release</h3>
+          <p data-i18n="approach.s2p">Depending on what the session calls for — hands-on work, a structured NLP protocol, or both in sequence. The body and the story move together.</p>
+        </div>
+        <div class="step reveal d3">
+          <span class="num" data-i18n="approach.s3num">Step 03</span>
+          <h3 data-i18n="approach.s3h">Integrate</h3>
+          <p data-i18n="approach.s3p">We close with practices you take home — breath, movement, language patterns — so the shift lives in your week, not just the hour.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section-pad wrap">
+  <div style="max-width:680px;">
+    <span class="eyebrow reveal" data-i18n="testi.eyebrow">05 — Clients</span>
+    <h2 class="reveal d2" style="margin-top:18px;" data-i18n="testi.h2" data-i18n-html>In their <em class="italic" style="color:var(--terracotta);">words.</em></h2>
+  </div>
+
+  <div class="testi-grid">
+    <figure class="testi reveal">
+      <!-- TESTIMONIAL 1 — replace quote + attribution -->
+      <blockquote class="quote" data-i18n="testi.q1">[Testimonial quote one — e.g. “Kristof treats you like a whole human, not a problem to fix. I came in for my back and left with a clearer head than I've had in a year.”]</blockquote>
+      <figcaption class="who">
+        <span class="avatar" aria-hidden="true"></span>
+        <span><strong>[Client Name]</strong><span data-i18n="testi.role1">[Role / City]</span></span>
+      </figcaption>
+    </figure>
+
+    <figure class="testi reveal d2">
+      <!-- TESTIMONIAL 2 -->
+      <blockquote class="quote" data-i18n="testi.q2">[Testimonial quote two — e.g. “The combination of massage and NLP is something I didn't know I needed. It unlocked things talk therapy couldn't touch.”]</blockquote>
+      <figcaption class="who">
+        <span class="avatar" aria-hidden="true"></span>
+        <span><strong>[Client Name]</strong><span data-i18n="testi.role2">[Role / City]</span></span>
+      </figcaption>
+    </figure>
+
+    <figure class="testi reveal d3">
+      <!-- TESTIMONIAL 3 -->
+      <blockquote class="quote" data-i18n="testi.q3">[Testimonial quote three — e.g. “I've had sports massages for a decade. This was the first time the work actually held. Whatever he's doing, it's different.”]</blockquote>
+      <figcaption class="who">
+        <span class="avatar" aria-hidden="true"></span>
+        <span><strong>[Client Name]</strong><span data-i18n="testi.role3">[Role / City]</span></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="section-pad wrap">
+  <div class="insta">
+    <div class="insta-visual reveal" aria-hidden="true">
+      <div class="ig-icon"></div>
+    </div>
+    <div class="insta-copy">
+      <span class="eyebrow reveal" data-i18n="insta.eyebrow">06 — Follow along</span>
+      <h2 class="reveal d2" style="margin-top:18px;" data-i18n="insta.h2" data-i18n-html>Daily practice, <em>in public.</em></h2>
+      <p class="reveal d3" data-i18n="insta.p">
+        Mobility drills, mindset reframes, recovery protocols, and the occasional unfiltered
+        thought on what actually moves the needle. Instagram is where the ongoing work lives.
+      </p>
+      <a class="insta-handle reveal d3" href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">@kristofholistik</a>
+      <a class="btn btn-primary reveal d4" href="https://instagram.com/kristofholistik" target="_blank" rel="noopener" style="margin-top:22px;">
+        <span data-i18n="insta.cta">Follow on Instagram</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section-pad wrap">
+  <div style="max-width:720px;">
+    <span class="eyebrow reveal" data-i18n="contact.eyebrow">07 — Book a session</span>
+    <h2 class="reveal d2" style="margin-top:18px;" data-i18n="contact.h2" data-i18n-html>Let's <em class="italic" style="color:var(--sage);">begin.</em></h2>
+    <p class="reveal d3" style="margin-top:22px;color:var(--ink-soft);max-width:54ch;" data-i18n="contact.lead">
+      Tell me a little about what you're working with. I'll get back to you within 48 hours
+      with availability and the format that fits.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3 data-i18n="contact.directH">Direct</h3>
+      <div class="detail">
+        <span class="label" data-i18n="contact.emailLabel">Email</span>
+        <a class="value" href="mailto:[EMAIL]">[EMAIL]</a>
+      </div>
+      <div class="detail">
+        <span class="label" data-i18n="contact.phoneLabel">Phone</span>
+        <a class="value" href="tel:[PHONE]">[PHONE]</a>
+      </div>
+      <div class="detail">
+        <span class="label" data-i18n="contact.locLabel">Location</span>
+        <span class="value">Montréal, QC</span>
+      </div>
+      <div class="detail">
+        <span class="label">Instagram</span>
+        <a class="value" href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">@kristofholistik</a>
+      </div>
+    </div>
+
+    <!-- Contact form — client-side validation only; wire to a backend / Formspree / etc. later. -->
+    <form id="contactForm" novalidate class="reveal d2">
+      <div class="field-row">
+        <div class="field" data-field>
+          <label for="f-name" data-i18n="form.name">Your name</label>
+          <input id="f-name" name="name" type="text" required data-i18n-ph="form.namePh" placeholder="Full name"/>
+          <span class="err" data-i18n="form.nameErr">Please share your name.</span>
+        </div>
+        <div class="field" data-field>
+          <label for="f-email" data-i18n="form.email">Email</label>
+          <input id="f-email" name="email" type="email" required data-i18n-ph="form.emailPh" placeholder="you@email.com"/>
+          <span class="err" data-i18n="form.emailErr">A valid email, please.</span>
+        </div>
+      </div>
+      <div class="field" data-field>
+        <label for="f-service" data-i18n="form.service">Service of interest</label>
+        <select id="f-service" name="service" required>
+          <option value="" data-i18n="form.svc0">Choose one</option>
+          <option data-i18n="form.svc1">Sports Massage Therapy</option>
+          <option data-i18n="form.svc2">NLP Coaching</option>
+          <option data-i18n="form.svc3">Both — integrated program</option>
+          <option data-i18n="form.svc4">Not sure yet — let's talk</option>
+        </select>
+        <span class="err" data-i18n="form.svcErr">Pick a starting point.</span>
+      </div>
+      <div class="field" data-field>
+        <label for="f-msg" data-i18n="form.msg">What are you working with?</label>
+        <textarea id="f-msg" name="message" required data-i18n-ph="form.msgPh" placeholder="A few sentences about what brought you here..."></textarea>
+        <span class="err" data-i18n="form.msgErr">A short note helps me prepare.</span>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn btn-primary"><span data-i18n="form.submit">Send inquiry</span> <span class="arrow" aria-hidden="true">→</span></button>
+        <span class="form-note" data-i18n="form.note">Replies within 48 hours · EN / FR</span>
+      </div>
+      <div class="form-success" id="formSuccess" data-i18n="form.success">
+        Thanks — your note just landed. I'll be in touch within 48 hours.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#top" class="brand"><span class="mark" aria-hidden="true"></span><span>Kristof Robert</span></a>
+      <p data-i18n="footer.blurb">Sports massage therapy &amp; NLP coaching. Body and mind, worked as one practice. Based in Montréal.</p>
+    </div>
+    <div>
+      <h4 data-i18n="footer.navigate">Navigate</h4>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#approach" data-i18n="nav.approach">Approach</a>
+      <a href="#contact" data-i18n="nav.cta">Book a session</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.elsewhere">Elsewhere</h4>
+      <a href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="tel:[PHONE]">[PHONE]</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer.copy">© 2026 Kristof Robert · All rights reserved</span>
+    <span data-i18n="footer.made">Made with care · Montréal, QC</span>
+  </div>
+</footer>
+
+<!-- ============ TWEAKS PANEL ============ -->
+<script type="application/json" id="tweak-defaults">
+{
+  "palette": "vibrant",
+  "serif": "Cormorant Garamond",
+  "heroBadge": "Now booking · Spring 2026",
+  "heroLine1": "Kristof",
+  "heroLine2": "Robert.",
+  "showMarquee": true
+}
+</script>
+
+<script>
+/* ———————————————————————————————————————————
+   Scroll reveal
+   ——————————————————————————————————————————— */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ——————————————————————————————————————————————
+   Bilingual EN / FR
+   All translatable strings live in this I18N dictionary, keyed by the
+   data-i18n="<key>" attribute on each element. To edit copy, find the
+   key below and change both the .en and .fr strings.
+   • data-i18n-html  → value is set via innerHTML (inline <em>, <br>, <strong>)
+   • data-i18n-ph    → value is set as the placeholder attribute
+   —————————————————————————————————————————————— */
+const I18N = {
+  "nav.about":       {en:"About",                              fr:"À propos"},
+  "nav.what":        {en:"What is it?",                         fr:"C'est quoi?"},
+  "nav.services":    {en:"Services",                           fr:"Services"},
+  "nav.approach":    {en:"Approach",                           fr:"Approche"},
+  "nav.contact":     {en:"Contact",                            fr:"Contact"},
+  "nav.cta":         {en:"Book a session",                     fr:"Prendre rendez-vous"},
+
+  "hero.eyebrow":    {en:"Montréal · Québec",                  fr:"Montréal · Québec"},
+  "hero.sub":        {en:"<span class='pill'>Sports Massage</span> for the body, <span class='pill green'>NLP / PNL</span> for the mind.",
+                      fr:"<span class='pill'>Massage sportif</span> pour le corps, <span class='pill green'>PNL / NLP</span> pour l'esprit."},
+  "hero.h1":         {en:"Heal the body.<br/><span class='line2'>Rewire the mind.</span>", fr:"Guérir le corps.<br/><span class='line2'>Reprogrammer l'esprit.</span>"},
+  "hero.lead":       {en:"Kristof Robert is a sports massage therapist and certified NLP coach. He works with athletes, high performers, and anyone carrying tension — physical or mental — into the life they want to live.",
+                      fr:"Kristof Robert est massothérapeute sportif et coach certifié en PNL. Il accompagne les athlètes, les hauts performeurs et toute personne qui porte une tension — physique ou mentale — dans la vie qu'elle souhaite vivre."},
+  "hero.cta1":       {en:"Book a session",                     fr:"Prendre rendez-vous"},
+  "hero.cta2":       {en:"Explore services",                   fr:"Découvrir les services"},
+  "hero.meta1":      {en:"Years practicing",                   fr:"Années de pratique"},
+  "hero.meta2":      {en:"Modalities, one practice",           fr:"Modalités, une pratique"},
+  "hero.meta3":      {en:"Sessions delivered",                 fr:"Séances données"},
+  "hero.badge":      {en:"Now booking · Spring 2026",          fr:"Réservations ouvertes · Printemps 2026"},
+
+  "about.eyebrow":   {en:"01 — About",                         fr:"01 — À propos"},
+  "about.h2":        {en:"The whole person, <em class='italic' style='color:var(--terracotta);'>not the symptom.</em>",
+                      fr:"La personne entière, <em class='italic' style='color:var(--terracotta);'>pas le symptôme.</em>"},
+  "about.lead":      {en:"I believe the body and mind aren't separate clients — they're the same one, asking for <em>attention</em> in two different languages.",
+                      fr:"Je crois que le corps et l'esprit ne sont pas deux clients distincts — c'est le même, qui demande de l'<em>attention</em> dans deux langues différentes."},
+  "about.p1":        {en:"I started in sports massage working with athletes who kept coming back with the same injuries. The tissue would heal, but the patterns didn't. That's what led me to NLP — because fascia holds stories, and the nervous system learns them faster than we think.",
+                      fr:"J'ai commencé en massothérapie sportive avec des athlètes qui revenaient toujours avec les mêmes blessures. Les tissus guérissaient, mais les schémas, non. C'est ce qui m'a mené à la PNL — parce que le fascia retient des histoires, et le système nerveux les apprend plus vite qu'on ne le pense."},
+  "about.p2":        {en:"Today I work with two tools: my hands and a structured conversation. Some clients come for the table. Some for the chair. Most, eventually, try both. The goal isn't relaxation or mindset hacks — it's coherence between what your body is doing and what your life is asking of it.",
+                      fr:"Aujourd'hui, je travaille avec deux outils : mes mains et une conversation structurée. Certains clients viennent pour la table. D'autres pour la chaise. La plupart finissent par essayer les deux. Le but n'est pas la détente ou les astuces mentales — c'est la cohérence entre ce que fait votre corps et ce que votre vie lui demande."},
+  "about.cred1":     {en:"<strong>Certified NLP Practitioner</strong> — Richard Bandler lineage",    fr:"<strong>Praticien PNL certifié</strong> — lignée Richard Bandler"},
+  "about.cred2":     {en:"<strong>Sports Massage Therapist</strong> — FQM registered",              fr:"<strong>Massothérapeute sportif</strong> — membre FQM"},
+  "about.cred3":     {en:"<strong>Deep Tissue &amp; Myofascial</strong> — 8+ years on the table",   fr:"<strong>Tissus profonds &amp; myofascial</strong> — 8+ ans à la table"},
+  "about.cred4":     {en:"<strong>Performance Coaching</strong> — athletes &amp; founders",         fr:"<strong>Coaching de performance</strong> — athlètes &amp; fondateurs"},
+
+  "what.eyebrow":    {en:"02 — The two modalities",             fr:"02 — Les deux modalités"},
+  "what.h2":         {en:"So — what <em class='italic' style='color:var(--terracotta);'>exactly</em> is it?",
+                      fr:"Alors — c'est <em class='italic' style='color:var(--terracotta);'>quoi</em> au juste?"},
+  "what.lead":       {en:"Two words you'll see a lot around here. Here's the plain-language version of what they mean and what they actually do for you.",
+                      fr:"Deux mots que vous verrez souvent ici. Voici la version simple de ce que ça veut dire et de ce que ça fait pour vous."},
+  "what.tag1":       {en:"For the body",                        fr:"Pour le corps"},
+  "what.tag2":       {en:"For the mind",                        fr:"Pour l'esprit"},
+  "what.h3a":        {en:"Sports Massage",                      fr:"Massage sportif"},
+  "what.whata":      {en:"Targeted, deep-tissue bodywork built around how <em>muscles, fascia, and nerves</em> actually move — not a spa rubdown.",
+                      fr:"Un travail corporel ciblé en profondeur, conçu autour du fonctionnement réel des <em>muscles, du fascia et des nerfs</em> — pas un massage de spa."},
+  "what.pa1":        {en:"It blends deep tissue, trigger-point therapy, myofascial release and active stretching. Pressure is firm and purposeful — we work where tension, scar tissue or compensation patterns are restricting you.",
+                      fr:"Il combine tissus profonds, points de déclenchement, relâchement myofascial et étirements actifs. La pression est ferme et intentionnelle — on travaille là où les tensions, les tissus cicatriciels ou les compensations vous limitent."},
+  "what.pa2":        {en:"The aim isn't just to feel good for an hour. It's to release chronic holding, restore range of motion, speed up recovery between training sessions, and prevent the small issues that turn into injuries.",
+                      fr:"Le but n'est pas juste de se sentir bien pendant une heure. C'est de libérer les tensions chroniques, retrouver l'amplitude de mouvement, accélérer la récupération entre les entraînements et prévenir les petits pépins qui deviennent des blessures."},
+  "what.h3b":        {en:"NLP <span class='abbr'>EN</span> / PNL <span class='abbr'>FR</span>",
+                      fr:"PNL <span class='abbr'>FR</span> / NLP <span class='abbr'>EN</span>"},
+  "what.whatb":      {en:"Same thing, two languages: <em>Neuro-Linguistic Programming</em> in English, <em>Programmation Neuro-Linguistique</em> en français.",
+                      fr:"La même chose, deux langues : <em>Programmation Neuro-Linguistique</em> en français, <em>Neuro-Linguistic Programming</em> in English."},
+  "what.pb1":        {en:"NLP is a practical toolkit for how language and thought patterns shape your behaviour — the internal dialogue, the images you run on repeat, the beliefs you picked up somewhere and never questioned.",
+                      fr:"La PNL est une boîte à outils pratique sur la façon dont le langage et les schémas de pensée façonnent votre comportement — le dialogue intérieur, les images que vous rejouez en boucle, les croyances attrapées quelque part et jamais remises en question."},
+  "what.pb2":        {en:"In a session we map the pattern that's keeping you stuck, then use structured techniques — reframing, anchoring, timeline work — to reprogram it. It's a coaching approach, not therapy: we work forward, on outcomes.",
+                      fr:"En séance, on cartographie le schéma qui vous bloque, puis on utilise des techniques structurées — recadrage, ancrage, travail sur la ligne du temps — pour le reprogrammer. C'est une approche de coaching, pas une thérapie : on travaille vers l'avant, sur des résultats."},
+  "what.meansLabel1":{en:"Good for",                            fr:"Utile pour"},
+  "what.meansLabel2":{en:"A session feels",                     fr:"Une séance, ça se sent"},
+  "what.meansA1":    {en:"Athletes, runners, climbers, desk-bound bodies with stiff necks, anyone recovering from a strain.",
+                      fr:"Athlètes, coureurs, grimpeurs, corps assis au bureau avec la nuque raide, toute personne en récupération d'une entorse."},
+  "what.meansA2":    {en:"Intense in places, specific, then noticeably looser afterward — often for days.",
+                      fr:"Intense par endroits, ciblé, puis nettement plus souple après — souvent pendant des jours."},
+  "what.meansB1":    {en:"Stuck goals, performance anxiety, limiting beliefs, stress loops, decisions you can't seem to make.",
+                      fr:"Objectifs bloqués, anxiété de performance, croyances limitantes, boucles de stress, décisions qui n'arrivent jamais."},
+  "what.meansB2":    {en:"Like a focused conversation with exercises — structured, surprisingly concrete, and rarely what you expected.",
+                      fr:"Comme une conversation ciblée avec des exercices — structurée, étonnamment concrète, et rarement ce à quoi vous vous attendiez."},
+
+  "services.eyebrow":{en:"03 — Services",                       fr:"03 — Services"},
+  "services.h2":     {en:"Two practices, <em class='italic' style='color:var(--sage);'>one continuum.</em>",
+                      fr:"Deux pratiques, <em class='italic' style='color:var(--sage);'>un seul continuum.</em>"},
+  "services.lead":   {en:"You can book either modality on its own, or combine them into an integrated program. Most clients find that the work compounds when body and mind are addressed together.",
+                      fr:"Vous pouvez réserver l'une ou l'autre des modalités seule, ou les combiner dans un programme intégré. La plupart des clients constatent que le travail se renforce lorsque le corps et l'esprit sont abordés ensemble."},
+
+  "pillar1.num":     {en:"Pillar 01 — Body",                    fr:"Pilier 01 — Corps"},
+  "pillar1.h3":      {en:"Sports Massage Therapy",              fr:"Massothérapie sportive"},
+  "pillar1.sub":     {en:"Recovery, resilience, and range of motion.", fr:"Récupération, résilience et amplitude de mouvement."},
+  "pillar1.body":    {en:"Targeted manual therapy for athletes and active people. Deep tissue, trigger point, and myofascial work to release chronic tension, accelerate recovery, and keep you performing without breaking down.",
+                      fr:"Thérapie manuelle ciblée pour les athlètes et les personnes actives. Travail en profondeur, points de déclenchement et myofascial pour libérer les tensions chroniques, accélérer la récupération et vous garder performant sans vous épuiser."},
+  "pillar1.li1":     {en:"Post-training recovery &amp; pre-competition prep",      fr:"Récupération post-entraînement &amp; préparation pré-compétition"},
+  "pillar1.li2":     {en:"Injury rehabilitation &amp; prevention",                 fr:"Rééducation &amp; prévention des blessures"},
+  "pillar1.li3":     {en:"Chronic tension and postural imbalances",                fr:"Tensions chroniques et déséquilibres posturaux"},
+  "pillar1.li4":     {en:"Performance optimization for endurance &amp; strength athletes", fr:"Optimisation de la performance pour athlètes d'endurance &amp; de force"},
+  "pillar1.whoLabel":{en:"Who it's for",                        fr:"À qui ça s'adresse"},
+  "pillar1.who":     {en:"Athletes, weekend warriors, desk workers with bodies that carry more than they signed up for.",
+                      fr:"Athlètes, sportifs du dimanche, travailleurs de bureau dont le corps porte plus qu'il n'a signé."},
+
+  "pillar2.num":     {en:"Pillar 02 — Mind",                    fr:"Pilier 02 — Esprit"},
+  "pillar2.h3":      {en:"NLP Coaching",                        fr:"Coaching PNL"},
+  "pillar2.sub":     {en:"Rewire the patterns running underneath.", fr:"Reprogrammer les schémas qui tournent en arrière-plan."},
+  "pillar2.body":    {en:"Neuro-Linguistic Programming is a structured approach to how language, behaviour, and thought patterns shape your life. We work on limiting beliefs, emotional regulation, and the goals that keep slipping just out of reach.",
+                      fr:"La Programmation Neuro-Linguistique est une approche structurée de la façon dont le langage, le comportement et les schémas de pensée façonnent votre vie. Nous travaillons sur les croyances limitantes, la régulation émotionnelle et les objectifs qui vous échappent sans cesse."},
+  "pillar2.li1":     {en:"Limiting beliefs &amp; self-sabotage patterns",          fr:"Croyances limitantes &amp; schémas d'autosabotage"},
+  "pillar2.li2":     {en:"Emotional regulation &amp; stress response",             fr:"Régulation émotionnelle &amp; réponse au stress"},
+  "pillar2.li3":     {en:"Goal achievement &amp; behavioural change",              fr:"Atteinte d'objectifs &amp; changement comportemental"},
+  "pillar2.li4":     {en:"Peak performance mindset for athletes &amp; founders",   fr:"Mental de haute performance pour athlètes &amp; fondateurs"},
+  "pillar2.whoLabel":{en:"Who it's for",                        fr:"À qui ça s'adresse"},
+  "pillar2.who":     {en:"People who know what they want but keep hitting the same internal wall trying to get there.",
+                      fr:"Les personnes qui savent ce qu'elles veulent mais qui butent toujours contre le même mur intérieur."},
+
+  "approach.eyebrow":{en:"04 — Approach",                       fr:"04 — Approche"},
+  "approach.h2":     {en:"Tension in the tissue is <em>tension in the story.</em>",
+                      fr:"Une tension dans les tissus, c'est <em>une tension dans le récit.</em>"},
+  "approach.s1num":  {en:"Step 01",                             fr:"Étape 01"},
+  "approach.s1h":    {en:"Listen",                              fr:"Écouter"},
+  "approach.s1p":    {en:"We start with a conversation and a read of the body. Where are you holding? What's been repeating? What do you actually want out of this?",
+                      fr:"On commence par une conversation et une lecture du corps. Où retenez-vous? Qu'est-ce qui se répète? Que voulez-vous vraiment tirer de tout ça?"},
+  "approach.s2num":  {en:"Step 02",                             fr:"Étape 02"},
+  "approach.s2h":    {en:"Release",                             fr:"Libérer"},
+  "approach.s2p":    {en:"Depending on what the session calls for — hands-on work, a structured NLP protocol, or both in sequence. The body and the story move together.",
+                      fr:"Selon ce que la séance demande — travail manuel, protocole PNL structuré, ou les deux en séquence. Le corps et le récit avancent ensemble."},
+  "approach.s3num":  {en:"Step 03",                             fr:"Étape 03"},
+  "approach.s3h":    {en:"Integrate",                           fr:"Intégrer"},
+  "approach.s3p":    {en:"We close with practices you take home — breath, movement, language patterns — so the shift lives in your week, not just the hour.",
+                      fr:"On clôt avec des pratiques à emporter — respiration, mouvement, schémas de langage — pour que le changement vive dans votre semaine, pas seulement dans l'heure."},
+
+  "testi.eyebrow":   {en:"05 — Clients",                        fr:"05 — Clients"},
+  "testi.h2":        {en:"In their <em class='italic' style='color:var(--terracotta);'>words.</em>",
+                      fr:"En leurs <em class='italic' style='color:var(--terracotta);'>mots.</em>"},
+  "testi.q1":        {en:"[Testimonial quote one — e.g. “Kristof treats you like a whole human, not a problem to fix. I came in for my back and left with a clearer head than I've had in a year.”]",
+                      fr:"[Citation témoignage un — ex. « Kristof te traite comme un être humain entier, pas comme un problème à régler. Je suis venu pour mon dos et je suis reparti avec la tête plus claire qu'en un an. »]"},
+  "testi.q2":        {en:"[Testimonial quote two — e.g. “The combination of massage and NLP is something I didn't know I needed. It unlocked things talk therapy couldn't touch.”]",
+                      fr:"[Citation témoignage deux — ex. « La combinaison massage + PNL, je ne savais pas que j'en avais besoin. Ça a débloqué des choses que la thérapie par la parole ne touchait pas. »]"},
+  "testi.q3":        {en:"[Testimonial quote three — e.g. “I've had sports massages for a decade. This was the first time the work actually held. Whatever he's doing, it's different.”]",
+                      fr:"[Citation témoignage trois — ex. « Je reçois des massages sportifs depuis dix ans. C'est la première fois que le travail tient vraiment. Peu importe ce qu'il fait, c'est différent. »]"},
+  "testi.role1":     {en:"[Role / City]",                       fr:"[Rôle / Ville]"},
+  "testi.role2":     {en:"[Role / City]",                       fr:"[Rôle / Ville]"},
+  "testi.role3":     {en:"[Role / City]",                       fr:"[Rôle / Ville]"},
+
+  "insta.eyebrow":   {en:"06 — Follow along",                   fr:"06 — Suivez le fil"},
+  "insta.h2":        {en:"Daily practice, <em>in public.</em>", fr:"Pratique quotidienne, <em>en public.</em>"},
+  "insta.p":         {en:"Mobility drills, mindset reframes, recovery protocols, and the occasional unfiltered thought on what actually moves the needle. Instagram is where the ongoing work lives.",
+                      fr:"Exercices de mobilité, recadrages mentaux, protocoles de récupération, et de temps à autre une pensée sans filtre sur ce qui fait vraiment une différence. Instagram, c'est là que vit le travail au quotidien."},
+  "insta.cta":       {en:"Follow on Instagram",                 fr:"Suivre sur Instagram"},
+
+  "contact.eyebrow": {en:"07 — Book a session",                 fr:"07 — Prendre rendez-vous"},
+  "contact.h2":      {en:"Let's <em class='italic' style='color:var(--sage);'>begin.</em>",
+                      fr:"<em class='italic' style='color:var(--sage);'>Commençons.</em>"},
+  "contact.lead":    {en:"Tell me a little about what you're working with. I'll get back to you within 48 hours with availability and the format that fits.",
+                      fr:"Dites-moi un peu sur quoi vous travaillez. Je reviens vers vous dans les 48 heures avec mes disponibilités et le format qui convient."},
+  "contact.directH": {en:"Direct",                              fr:"Direct"},
+  "contact.emailLabel":{en:"Email",                             fr:"Courriel"},
+  "contact.phoneLabel":{en:"Phone",                             fr:"Téléphone"},
+  "contact.locLabel":{en:"Location",                            fr:"Lieu"},
+
+  "form.name":       {en:"Your name",                           fr:"Votre nom"},
+  "form.namePh":     {en:"Full name",                           fr:"Nom complet"},
+  "form.nameErr":    {en:"Please share your name.",             fr:"Veuillez indiquer votre nom."},
+  "form.email":      {en:"Email",                               fr:"Courriel"},
+  "form.emailPh":    {en:"you@email.com",                       fr:"vous@courriel.com"},
+  "form.emailErr":   {en:"A valid email, please.",              fr:"Un courriel valide, svp."},
+  "form.service":    {en:"Service of interest",                 fr:"Service d'intérêt"},
+  "form.svc0":       {en:"Choose one",                          fr:"Choisissez"},
+  "form.svc1":       {en:"Sports Massage Therapy",              fr:"Massothérapie sportive"},
+  "form.svc2":       {en:"NLP Coaching",                        fr:"Coaching PNL"},
+  "form.svc3":       {en:"Both — integrated program",           fr:"Les deux — programme intégré"},
+  "form.svc4":       {en:"Not sure yet — let's talk",           fr:"Pas encore sûr — parlons-en"},
+  "form.svcErr":     {en:"Pick a starting point.",              fr:"Choisissez un point de départ."},
+  "form.msg":        {en:"What are you working with?",          fr:"Qu'est-ce qui vous amène?"},
+  "form.msgPh":      {en:"A few sentences about what brought you here...", fr:"Quelques phrases sur ce qui vous amène..."},
+  "form.msgErr":     {en:"A short note helps me prepare.",      fr:"Un court message m'aide à me préparer."},
+  "form.submit":     {en:"Send inquiry",                        fr:"Envoyer la demande"},
+  "form.note":       {en:"Replies within 48 hours · EN / FR",   fr:"Réponses sous 48 heures · EN / FR"},
+  "form.success":    {en:"Thanks — your note just landed. I'll be in touch within 48 hours.",
+                      fr:"Merci — votre message est bien reçu. Je vous reviens dans les 48 heures."},
+
+  "footer.blurb":    {en:"Sports massage therapy &amp; NLP coaching. Body and mind, worked as one practice. Based in Montréal.",
+                      fr:"Massothérapie sportive &amp; coaching PNL. Corps et esprit, travaillés comme une seule pratique. Basé à Montréal."},
+  "footer.navigate": {en:"Navigate",                            fr:"Naviguer"},
+  "footer.elsewhere":{en:"Elsewhere",                           fr:"Ailleurs"},
+  "footer.copy":     {en:"© 2026 Kristof Robert · All rights reserved", fr:"© 2026 Kristof Robert · Tous droits réservés"},
+  "footer.made":     {en:"Made with care · Montréal, QC",       fr:"Fait avec soin · Montréal, QC"},
+};
+
+function setLang(lang){
+  if(lang !== 'en' && lang !== 'fr') lang = 'en';
+  document.documentElement.setAttribute('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const entry = I18N[key];
+    if(!entry) return;
+    const val = (entry[lang] != null ? entry[lang] : entry.en);
+    if(el.hasAttribute('data-i18n-html')) el.innerHTML = val;
+    else el.textContent = val;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-ph');
+    const entry = I18N[key];
+    if(entry) el.setAttribute('placeholder', entry[lang] != null ? entry[lang] : entry.en);
+  });
+  document.querySelectorAll('[data-lang-opt]').forEach(el=>{
+    el.classList.toggle('active', el.getAttribute('data-lang-opt') === lang);
+  });
+  try{ localStorage.setItem('kr-lang', lang); }catch(e){}
+  document.title = lang === 'fr'
+    ? "Kristof Robert — Massothérapie sportive & Coaching PNL"
+    : "Kristof Robert — Sports Massage & NLP Coaching";
+}
+
+const savedLang = (function(){ try{ return localStorage.getItem('kr-lang'); }catch(e){ return null; } })();
+const initialLang = savedLang || (navigator.language && navigator.language.toLowerCase().startsWith('fr') ? 'fr' : 'en');
+setLang(initialLang);
+
+document.getElementById('langToggle').addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('lang') || 'en';
+  setLang(current === 'en' ? 'fr' : 'en');
+});
+
+/* Nav shadow on scroll */
+const nav = document.getElementById('nav');
+const onScroll = ()=>{ nav.classList.toggle('scrolled', window.scrollY > 24); };
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* Hero portrait parallax (gentle) */
+const heroImg = document.getElementById('heroImg');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  if(y < 800 && heroImg){ heroImg.style.transform = `translateY(${y*0.06}px) scale(${1 + Math.min(y,400)*0.00015})`; }
+},{passive:true});
+
+/* Contact form validation */
+const form = document.getElementById('contactForm');
+const successEl = document.getElementById('formSuccess');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  let ok = true;
+  form.querySelectorAll('[data-field]').forEach(f=>{
+    const input = f.querySelector('input, select, textarea');
+    const value = (input.value || '').trim();
+    let valid = value.length > 0;
+    if(input.type === 'email'){ valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
+    f.classList.toggle('invalid', !valid);
+    if(!valid) ok = false;
+  });
+  if(ok){
+    successEl.classList.add('show');
+    form.reset();
+    setTimeout(()=>successEl.classList.remove('show'), 6000);
+  }
+});
+form.querySelectorAll('[data-field] input, [data-field] select, [data-field] textarea').forEach(el=>{
+  el.addEventListener('input', ()=> el.closest('[data-field]').classList.remove('invalid'));
+});
+</script>
+
+<!-- Tweaks panel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<div id="tweaks-root"></div>
+
+<script type="text/babel" data-presets="env,react">
+(function(){
+  const { useState, useEffect } = React;
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "palette": "vibrant",
+    "serif": "Cormorant Garamond",
+    "heroBadge": "Now booking · Spring 2026",
+    "heroLine1": "Kristof",
+    "heroLine2": "Robert.",
+    "showMarquee": true
+  }/*EDITMODE-END*/;
+
+  const PALETTES = {
+    vibrant: { cream:"#FFF7EC", ink:"#1A1530", sage:"#17B890", sageDeep:"#0E7C6B", terracotta:"#FF5B4A", terracottaSoft:"#FFB199", cream2:"#FFE9C7" },
+    sunset:  { cream:"#FFF2E8", ink:"#2A0E2A", sage:"#E63946", sageDeep:"#A0153E", terracotta:"#FF8C42", terracottaSoft:"#FFBA78", cream2:"#FFDAB8" },
+    electric:{ cream:"#F4F0FF", ink:"#120B2E", sage:"#00D4B4", sageDeep:"#0A7C6B", terracotta:"#FF3B8B", terracottaSoft:"#FFA5C4", cream2:"#E5DEFF" },
+    earth:   { cream:"#F5F0E8", ink:"#2C2A26", sage:"#5A6B4F", sageDeep:"#3A4A3A", terracotta:"#C17B5C", terracottaSoft:"#E2B8A3", cream2:"#EEE6D8" },
+  };
+  const SERIFS = ["Cormorant Garamond","DM Serif Display","Libre Caslon Text","Playfair Display"];
+
+  function applyPalette(name){
+    const p = PALETTES[name] || PALETTES.earth;
+    const r = document.documentElement.style;
+    r.setProperty('--cream', p.cream);
+    r.setProperty('--cream-2', p.cream2);
+    r.setProperty('--ink', p.ink);
+    r.setProperty('--sage', p.sage);
+    r.setProperty('--sage-deep', p.sageDeep);
+    r.setProperty('--terracotta', p.terracotta);
+    r.setProperty('--terracotta-soft', p.terracottaSoft);
+  }
+  function applySerif(name){
+    // Lazy-inject the Google Font if not already loaded
+    const id = 'gf-'+name.replace(/\s+/g,'-');
+    if(!document.getElementById(id)){
+      const link = document.createElement('link');
+      link.id = id;
+      link.rel = 'stylesheet';
+      link.href = `https://fonts.googleapis.com/css2?family=${name.replace(/\s+/g,'+')}:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap`;
+      document.head.appendChild(link);
+    }
+    document.documentElement.style.setProperty('--serif', `"${name}", Georgia, serif`);
+  }
+
+  function TweaksApp(){
+    const [tw, setTw] = useState(TWEAK_DEFAULTS);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(()=>{
+      function onMsg(e){
+        if(!e.data || !e.data.type) return;
+        if(e.data.type === '__activate_edit_mode') setVisible(true);
+        if(e.data.type === '__deactivate_edit_mode') setVisible(false);
+      }
+      window.addEventListener('message', onMsg);
+      window.parent.postMessage({type:'__edit_mode_available'}, '*');
+      return ()=> window.removeEventListener('message', onMsg);
+    },[]);
+
+    // Apply live
+    useEffect(()=>{
+      applyPalette(tw.palette);
+      applySerif(tw.serif);
+      const badge = document.querySelector('.hero-portrait .badge');
+      if(badge){ badge.innerHTML = '<span class="dot"></span> ' + tw.heroBadge; }
+      const nameBlock = document.querySelector('.hero .name-block');
+      if(nameBlock){
+        nameBlock.innerHTML = '<span class="first">' + tw.heroLine1 + '</span><span class="last">' + tw.heroLine2 + '</span>';
+      }
+      const mq = document.querySelector('.marquee');
+      if(mq){ mq.style.display = tw.showMarquee ? '' : 'none'; }
+    },[tw]);
+
+    function update(key, val){
+      const next = {...tw, [key]:val};
+      setTw(next);
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[key]:val}}, '*');
+    }
+    function close(){
+      setVisible(false);
+      window.parent.postMessage({type:'__edit_mode_dismissed'}, '*');
+    }
+
+    if(!visible) return null;
+
+    const panelStyle = {
+      position:'fixed', right:20, bottom:20, width:320, zIndex:9999,
+      background:'rgba(245,240,232,0.96)', backdropFilter:'blur(14px)',
+      border:'1px solid rgba(44,42,38,0.14)', borderRadius:18,
+      padding:20, fontFamily:'"Inter Tight", system-ui, sans-serif', color:'#2C2A26',
+      boxShadow:'0 20px 40px -15px rgba(44,42,38,0.35)'
+    };
+    const rowStyle = {display:'flex', flexDirection:'column', gap:6, marginBottom:14};
+    const labelStyle = {fontSize:10, letterSpacing:'0.14em', textTransform:'uppercase', color:'#756F62', fontFamily:'"JetBrains Mono", monospace'};
+    const selectStyle = {padding:'8px 10px', borderRadius:8, border:'1px solid rgba(44,42,38,0.14)', background:'#fff', fontSize:13, fontFamily:'inherit'};
+    const inputStyle = {...selectStyle};
+    const headerStyle = {display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:14, borderBottom:'1px solid rgba(44,42,38,0.1)', paddingBottom:10};
+
+    return (
+      <div style={panelStyle}>
+        <div style={headerStyle}>
+          <div style={{fontFamily:'"Cormorant Garamond", serif', fontSize:18}}>Tweaks</div>
+          <button onClick={close} style={{background:'transparent', border:'none', cursor:'pointer', fontSize:18, color:'#756F62'}}>×</button>
+        </div>
+
+        <div style={rowStyle}>
+          <label style={labelStyle}>Palette</label>
+          <select style={selectStyle} value={tw.palette} onChange={e=>update('palette', e.target.value)}>
+            <option value="vibrant">Vibrant (default)</option>
+            <option value="sunset">Sunset — red/orange</option>
+            <option value="electric">Electric — teal/pink</option>
+            <option value="earth">Earth — muted</option>
+          </select>
+        </div>
+
+        <div style={rowStyle}>
+          <label style={labelStyle}>Serif Headline</label>
+          <select style={selectStyle} value={tw.serif} onChange={e=>update('serif', e.target.value)}>
+            {SERIFS.map(s=> <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+
+        <div style={rowStyle}>
+          <label style={labelStyle}>Hero — first name</label>
+          <input style={inputStyle} value={tw.heroLine1} onChange={e=>update('heroLine1', e.target.value)} />
+        </div>
+
+        <div style={rowStyle}>
+          <label style={labelStyle}>Hero — last name (gradient)</label>
+          <input style={inputStyle} value={tw.heroLine2} onChange={e=>update('heroLine2', e.target.value)} />
+        </div>
+
+        <div style={rowStyle}>
+          <label style={labelStyle}>Availability badge</label>
+          <input style={inputStyle} value={tw.heroBadge} onChange={e=>update('heroBadge', e.target.value)} />
+        </div>
+
+        <div style={{...rowStyle, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}>
+          <label style={labelStyle}>Credentials marquee</label>
+          <input type="checkbox" checked={tw.showMarquee} onChange={e=>update('showMarquee', e.target.checked)} />
+        </div>
+      </div>
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById('tweaks-root'));
+  root.render(<TweaksApp/>);
+})();
+</script>
+
+</body>
+</html>

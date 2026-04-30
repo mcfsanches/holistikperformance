@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kristof Robert — Website Intake Questionnaire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF7EC;
+    --cream-2:#FFE9C7;
+    --ink:#1A1530;
+    --ink-soft:#342C54;
+    --ink-mute:#6B6392;
+    --sage:#17B890;
+    --sage-deep:#0E7C6B;
+    --terracotta:#FF5B4A;
+    --accent:#FFB72B;
+    --violet:#7C3AED;
+    --line:rgba(26,21,48,0.16);
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter Tight", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.6;
+  }
+  .page{
+    max-width:880px;
+    margin:0 auto;
+    padding:64px clamp(20px, 5vw, 64px) 120px;
+  }
+
+  /* ——— Header ——— */
+  .doc-head{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:36px;
+    margin-bottom:48px;
+    position:relative;
+  }
+  .doc-head .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    display:inline-flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .doc-head .eyebrow::before{
+    content:"";width:24px;height:1px;background:var(--terracotta);
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(40px, 6vw, 68px);
+    line-height:0.95;
+    letter-spacing:-0.025em;
+    margin:0 0 18px;
+    text-wrap:balance;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:400;
+    background:linear-gradient(100deg, var(--terracotta) 0%, var(--accent) 50%, var(--sage) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .doc-head .lede{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(18px, 2vw, 22px);
+    color:var(--ink-soft);
+    max-width:62ch;
+    line-height:1.4;
+    margin:0;
+  }
+  .doc-meta{
+    margin-top:24px;
+    display:flex;gap:28px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .doc-meta strong{color:var(--ink);font-weight:500;}
+
+  /* ——— Intro card ——— */
+  .intro{
+    background:linear-gradient(165deg, #FFE9C7 0%, #FFD089 100%);
+    border-radius:22px;
+    padding:32px 36px;
+    margin-bottom:56px;
+    border:1px solid var(--line);
+  }
+  .intro h2{
+    font-family:var(--serif);
+    font-size:28px;
+    font-weight:500;
+    margin:0 0 12px;
+    letter-spacing:-0.01em;
+  }
+  .intro p{
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+  .intro p:last-child{margin-bottom:0;}
+  .intro .how{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px dashed rgba(26,21,48,0.25);
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .intro .how strong{color:var(--ink);font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;}
+
+  /* ——— Sections ——— */
+  section.qsec{
+    margin-bottom:56px;
+    page-break-inside:avoid;
+  }
+  .sec-head{
+    display:flex;align-items:baseline;gap:18px;
+    margin-bottom:8px;
+  }
+  .sec-head .num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--terracotta);
+    letter-spacing:0.16em;
+    flex:none;
+  }
+  .sec-head h2{
+    font-family:var(--serif);
+    font-size:clamp(28px, 3.4vw, 38px);
+    font-weight:500;
+    letter-spacing:-0.02em;
+    margin:0;
+    line-height:1.05;
+  }
+  .sec-head h2 em{
+    font-style:italic;
+    color:var(--terracotta);
+  }
+  .sec-intro{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 24px 0;
+    max-width:64ch;
+  }
+  /* Vary the section accent so the doc doesn't feel monotone */
+  section.qsec.tone-a .sec-head .num{color:var(--terracotta);}
+  section.qsec.tone-a .sec-head h2 em{color:var(--terracotta);}
+  section.qsec.tone-b .sec-head .num{color:var(--sage-deep);}
+  section.qsec.tone-b .sec-head h2 em{color:var(--sage-deep);}
+  section.qsec.tone-c .sec-head .num{color:var(--violet);}
+  section.qsec.tone-c .sec-head h2 em{color:var(--violet);}
+  section.qsec.tone-d .sec-head .num{color:#B8860B;}
+  section.qsec.tone-d .sec-head h2 em{color:#B8860B;}
+
+  /* ——— Question blocks ——— */
+  .q{
+    padding:18px 0 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .q:last-child{border-bottom:none;}
+  .q .label{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:15.5px;
+    color:var(--ink);
+    margin:0 0 6px;
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .q .label .qnum{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--ink-mute);
+    flex:none;
+    letter-spacing:0.08em;
+  }
+  .q .hint{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:14.5px;
+    color:var(--ink-mute);
+    margin:0 0 12px 28px;
+    max-width:60ch;
+    line-height:1.5;
+  }
+  .q .answer{
+    margin-left:28px;
+    border-bottom:1px solid var(--line);
+    min-height:54px;
+    padding:6px 0;
+  }
+  .q .answer.tall{min-height:120px;}
+  .q .answer.taller{min-height:180px;}
+  .q .answer.short{min-height:36px;}
+  .q .answer .lines{
+    display:block;
+    background-image:repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 27px,
+      rgba(26,21,48,0.18) 27px,
+      rgba(26,21,48,0.18) 28px
+    );
+    height:100%;
+    min-height:inherit;
+  }
+
+  /* checkbox-style options */
+  .options{
+    margin:8px 0 0 28px;
+    display:flex;flex-wrap:wrap;gap:8px 18px;
+  }
+  .options .opt{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .options .opt::before{
+    content:"";
+    width:14px;height:14px;
+    border:1.5px solid var(--ink);
+    border-radius:3px;
+    flex:none;
+    background:var(--cream);
+  }
+
+  /* Color swatch row */
+  .swatches{
+    margin:10px 0 0 28px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:12px;
+  }
+  .sw{
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    background:var(--cream);
+  }
+  .sw .strip{
+    height:48px;
+    display:flex;
+  }
+  .sw .strip span{flex:1;}
+  .sw .label-row{
+    padding:10px 12px;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12.5px;
+  }
+  .sw .label-row .name{font-weight:500;color:var(--ink);}
+  .sw .label-row .pick{
+    width:14px;height:14px;border:1.5px solid var(--ink);border-radius:3px;background:var(--cream);
+  }
+
+  /* Tone scales / sliders (printable) */
+  .scale{
+    margin:12px 0 0 28px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    background:rgba(255,233,199,0.4);
+  }
+  .scale .ends{
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink-mute);
+    margin-bottom:6px;
+  }
+  .scale .ends strong{color:var(--ink);font-weight:500;}
+  .scale .track{
+    height:4px;
+    background:linear-gradient(to right, var(--terracotta), var(--accent), var(--sage));
+    border-radius:99px;
+    position:relative;
+  }
+  .scale .ticks{
+    margin-top:8px;
+    display:flex;justify-content:space-between;
+  }
+  .scale .ticks .t{
+    width:14px;height:14px;border:1.5px solid var(--ink);
+    border-radius:50%;background:var(--cream);
+  }
+
+  /* Photo placeholder grid */
+  .photo-grid{
+    margin:14px 0 0 28px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+  }
+  .photo-grid .ph{
+    aspect-ratio:4/5;
+    border:1.5px dashed var(--ink-mute);
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ink-mute);
+    background:rgba(255,255,255,0.4);
+    text-align:center;
+    padding:10px;
+  }
+
+  /* Closing card */
+  .closing{
+    margin-top:64px;
+    padding:36px 40px;
+    background:linear-gradient(135deg, var(--ink) 0%, #2A1F5C 60%, var(--violet) 100%);
+    color:var(--cream);
+    border-radius:24px;
+  }
+  .closing h2{
+    font-family:var(--serif);
+    font-size:32px;
+    font-weight:500;
+    margin:0 0 12px;
+    letter-spacing:-0.02em;
+  }
+  .closing h2 em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .closing p{
+    color:rgba(255,247,236,0.85);
+    margin:0 0 12px;
+    max-width:60ch;
+  }
+  .closing .sign{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,247,236,0.2);
+    display:flex;flex-wrap:wrap;gap:36px;
+    font-size:13.5px;
+    color:rgba(255,247,236,0.7);
+  }
+  .closing .sign div{display:flex;flex-direction:column;gap:6px;}
+  .closing .sign .line{
+    border-bottom:1px solid rgba(255,247,236,0.4);
+    width:220px;
+    height:22px;
+  }
+
+  /* Print rules */
+  @media print{
+    body{background:#fff;font-size:12pt;}
+    .page{padding:0;}
+    .doc-head{break-inside:avoid;}
+    section.qsec{break-inside:avoid;}
+    .closing{break-inside:avoid;}
+    .intro{background:#FFE9C7 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .closing{background:#1A1530 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .sw .strip{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .scale .track{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+
+  /* Print button (screen only) */
+  .print-btn{
+    position:fixed;top:20px;right:20px;
+    background:var(--ink);color:var(--cream);
+    border:none;border-radius:999px;
+    padding:12px 22px;
+    font-family:var(--sans);font-size:13px;letter-spacing:0.04em;
+    cursor:pointer;
+    box-shadow:0 12px 24px -10px rgba(26,21,48,0.5);
+    z-index:99;
+  }
+  .print-btn:hover{background:var(--terracotta);}
+  @media print{.print-btn{display:none;}}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Save as PDF →</button>
+
+<div class="page">
+
+  <!-- ============ COVER LETTER ============ -->
+  <header class="doc-head">
+    <span class="eyebrow">A note before we begin</span>
+    <h1>Hi Kristof — let's <em>start your website.</em></h1>
+    <p class="lede">My name is <strong style="color:var(--ink);font-style:normal;font-weight:500;">Claude</strong>, and I'm Marcos's AI design assistant. Marcos has asked me to help build your new website for your sports massage and NLP / PNL practice — and before we touch a single pixel, we need to hear from <em>you</em>.</p>
+    <div class="doc-meta">
+      <span><strong>From:</strong> Claude (on behalf of Marcos)</span>
+      <span><strong>For:</strong> Kristof Robert</span>
+      <span><strong>Re:</strong> Website kickoff questionnaire</span>
+      <span><strong>Time:</strong> ~30–45 min</span>
+    </div>
+  </header>
+
+  <div class="intro" style="background:linear-gradient(165deg, #C8F2E3 0%, #8BE0C8 100%);">
+    <h2>Why this document exists</h2>
+    <p>A great website doesn't come from a template — it comes from <em>your</em> story, <em>your</em> voice, and the specific reasons clients keep coming back to you. The questions that follow are how we get there.</p>
+    <p>We've grouped everything into 10 short sections covering: who you are, why you chose these two paths, how you actually work, what tone and look feels like <em>you</em>, and the practical details we need (contact info, photos, pricing, etc.).</p>
+    <p>Once your answers come back, Marcos and I will turn them into a full first draft of the site — copy, layout, and visual direction — for you to react to and refine. <strong style="color:var(--ink);font-style:normal;font-weight:500;">Nothing here is wasted; every line you fill in shapes the final page.</strong></p>
+    <div class="how">
+      <strong>Three ways to return this:</strong>
+      &nbsp;1. Print, fill by hand, photograph the pages and email them back. &nbsp; 2. Type answers in a doc with the question numbers (e.g. 2.3, 4.1). &nbsp; 3. Voice-record your answers — an audio file is perfectly fine.
+      <br/><br/>
+      Take your time. The more honest and specific you are, the more the site will sound like <em>you</em> — not every other practitioner with the same certifications.
+      <br/><br/>
+      — <em>Claude, on behalf of Marcos</em>
+    </div>
+  </div>
+
+  <!-- ============ HEADER (intro removed — replaced by cover letter above) ============ -->
+
+
+  <!-- ============ 01 — ABOUT YOU ============ -->
+  <section class="qsec tone-a">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>About <em>you.</em></h2>
+    </div>
+    <p class="sec-intro">The "About" section will live or die on these answers. Don't write a CV — write the truth.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.1</span> Why <em>these two</em> paths — sports massage <em>and</em> NLP / PNL? What was the moment (or season) that made you commit to both, instead of one?</p>
+      <p class="hint">Was it a single client, an injury of your own, a teacher, a frustration with what you saw in the field? Tell the story — names and details welcome.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.2</span> What did you do <em>before</em> all this? What were you trained as, and what were you doing when you decided to switch?</p>
+      <p class="hint">Career background, sports background, anything formative. It's fine if the line was crooked.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.3</span> If a stranger asked you at a dinner party "<em>so what do you do?</em>" — what's your one-sentence answer?</p>
+      <p class="hint">Write it the way you'd actually say it. Slang and all.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.4</span> Why are <em>you</em> good at this? What do clients tell you that you do better than other practitioners they've seen?</p>
+      <p class="hint">Quote them if you remember. Specific is better than humble.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.5</span> What do you believe about the body and mind that not everyone in your field believes?</p>
+      <p class="hint">Your "thesis," basically. The thing you'd argue for over a beer.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.6</span> Three words a long-term client would use to describe a session with you?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">1.7</span> Anything personal you <em>want</em> on the site (family, sport you practice, languages, where you grew up)? And anything you'd rather <em>keep off</em>?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 02 — SPORTS MASSAGE ============ -->
+  <section class="qsec tone-d">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>Sports massage — <em>your way.</em></h2>
+    </div>
+    <p class="sec-intro">Anyone can copy a generic description off the internet. We need <em>your</em> version — what you actually do at the table.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.1</span> In your own words, what is sports massage? Pretend the reader has never had one.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.2</span> Which techniques do you actually use — and roughly how often? (deep tissue, trigger point, myofascial release, active release, stretching, cupping, etc.)</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.3</span> Walk me through a typical session — start to finish. What happens, in what order?</p>
+      <p class="hint">Intake → table work → home practice? Approximate minutes per phase if you can.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.4</span> Who is this <em>most</em> for? Who is it <em>not</em> for? Be honest.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.5</span> Common issues you treat — top 5 in order of frequency.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.6</span> A specific client story (anonymous is fine) where the work made a real difference.</p>
+      <p class="hint">"A runner came in with…" — concrete > vague. We'll polish for the site.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.7</span> Pricing &amp; session lengths offered. Packages?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">2.8</span> Receipts for insurance / FQM / RMT — what do you provide?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 03 — NLP / PNL ============ -->
+  <section class="qsec tone-b">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>NLP / PNL — <em>your way.</em></h2>
+    </div>
+    <p class="sec-intro">This one tends to confuse people. Help me explain it the way <em>you</em> would, to a skeptical friend.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.1</span> In your own words, what is NLP / PNL? What is it <em>not</em>? (it tends to get confused with hypnosis, NLP-the-machine-learning thing, "law of attraction," etc.)</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.2</span> How did you train? Who certified you? Any specific lineages or schools you want named?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.3</span> What does a session actually look like? Online, in person, both? Length, format, how many sessions does a typical engagement take?</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.4</span> Top 3 things people come to you for in NLP work? (e.g. anxiety, performance blocks, decision paralysis, breakups…)</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.5</span> A specific NLP/PNL client story where the work shifted something real.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.6</span> Pricing &amp; session lengths. Single session vs. packages?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">3.7</span> Do you ever combine massage + NLP in one visit? Or sequence them across an "integrated program"? Walk me through how that works.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 04 — VOICE & TONE ============ -->
+  <section class="qsec tone-c">
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>Voice &amp; <em>tone.</em></h2>
+    </div>
+    <p class="sec-intro">How should the site <em>sound</em> when someone reads it? Mark on the scales — the dot you'd put for your ideal voice.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.1</span> Place yourself on each axis:</p>
+
+      <div class="scale">
+        <div class="ends"><strong>Clinical / professional</strong><strong>Warm / intimate</strong></div>
+        <div class="track"></div>
+        <div class="ticks"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span></div>
+      </div>
+      <div class="scale">
+        <div class="ends"><strong>Spiritual / philosophical</strong><strong>Practical / no-nonsense</strong></div>
+        <div class="track"></div>
+        <div class="ticks"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span></div>
+      </div>
+      <div class="scale">
+        <div class="ends"><strong>Polished / formal</strong><strong>Playful / witty</strong></div>
+        <div class="track"></div>
+        <div class="ticks"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span></div>
+      </div>
+      <div class="scale">
+        <div class="ends"><strong>"Vous"</strong><strong>"Tu" / first-name</strong></div>
+        <div class="track"></div>
+        <div class="ticks"><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span><span class="t"></span></div>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.2</span> Words and phrases you <em>love</em> (use them often, want to see on the site):</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.3</span> Words and phrases you <em>hate</em> (industry clichés, anything that makes you cringe):</p>
+      <p class="hint">e.g. "wellness journey," "holistic," "energy work," "unlock your potential" — say which.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.4</span> Two or three websites you've seen and thought "<em>yes — this</em>." Why?</p>
+      <p class="hint">Doesn't have to be in your field. Could be a restaurant, a designer, an athlete's site.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.5</span> One or two websites you've seen and thought "<em>absolutely not</em>." Why?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">4.6</span> Bilingual: which language is primary on the site? Should the FR or EN version load by default for a Montréal visitor?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 05 — VISUAL DIRECTION ============ -->
+  <section class="qsec tone-a">
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>Visual <em>direction.</em></h2>
+    </div>
+    <p class="sec-intro">Tick whatever speaks to you. You can pick more than one.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">5.1</span> Which palette feels closest to <em>you</em>?</p>
+      <div class="swatches">
+        <div class="sw">
+          <div class="strip"><span style="background:#FFF7EC"></span><span style="background:#FFB72B"></span><span style="background:#FF5B4A"></span><span style="background:#17B890"></span><span style="background:#1A1530"></span></div>
+          <div class="label-row"><span class="name">Vibrant</span><span class="pick"></span></div>
+        </div>
+        <div class="sw">
+          <div class="strip"><span style="background:#F5F0E8"></span><span style="background:#C17B5C"></span><span style="background:#5A6B4F"></span><span style="background:#3A4A3A"></span><span style="background:#2C2A26"></span></div>
+          <div class="label-row"><span class="name">Earth / muted</span><span class="pick"></span></div>
+        </div>
+        <div class="sw">
+          <div class="strip"><span style="background:#FFF2E8"></span><span style="background:#FF8C42"></span><span style="background:#E63946"></span><span style="background:#A0153E"></span><span style="background:#2A0E2A"></span></div>
+          <div class="label-row"><span class="name">Sunset</span><span class="pick"></span></div>
+        </div>
+        <div class="sw">
+          <div class="strip"><span style="background:#F4F0FF"></span><span style="background:#00D4B4"></span><span style="background:#FF3B8B"></span><span style="background:#7C3AED"></span><span style="background:#120B2E"></span></div>
+          <div class="label-row"><span class="name">Electric</span><span class="pick"></span></div>
+        </div>
+        <div class="sw">
+          <div class="strip"><span style="background:#FAFAFA"></span><span style="background:#E5E5E5"></span><span style="background:#171717"></span><span style="background:#171717"></span><span style="background:#171717"></span></div>
+          <div class="label-row"><span class="name">Black &amp; white only</span><span class="pick"></span></div>
+        </div>
+        <div class="sw">
+          <div class="strip"><span style="background:#0F1B2D"></span><span style="background:#1E3A5F"></span><span style="background:#3B82F6"></span><span style="background:#FFFFFF"></span><span style="background:#FFFFFF"></span></div>
+          <div class="label-row"><span class="name">Cool / clinical blue</span><span class="pick"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">5.2</span> Mood — circle all that apply (or write your own):</p>
+      <div class="options">
+        <span class="opt">Grounded</span>
+        <span class="opt">Energetic</span>
+        <span class="opt">Calm</span>
+        <span class="opt">Confident</span>
+        <span class="opt">Intimate</span>
+        <span class="opt">Athletic</span>
+        <span class="opt">Editorial / magazine-like</span>
+        <span class="opt">Minimal</span>
+        <span class="opt">Warm / handmade</span>
+        <span class="opt">Modern / clinical</span>
+        <span class="opt">Playful</span>
+        <span class="opt">Other: ___________</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">5.3</span> Typography preference?</p>
+      <div class="options">
+        <span class="opt">Classic serif (current)</span>
+        <span class="opt">Modern sans only</span>
+        <span class="opt">Bold display + clean body</span>
+        <span class="opt">Handwritten accent</span>
+        <span class="opt">No preference — designer's call</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">5.4</span> Anything you absolutely <em>do not</em> want visually?</p>
+      <p class="hint">e.g. "no stock photos of zen rocks," "no neon," "no AI-generated illustrations."</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 06 — PHOTOS & ASSETS ============ -->
+  <section class="qsec tone-d">
+    <div class="sec-head">
+      <span class="num">06</span>
+      <h2>Photos &amp; <em>assets.</em></h2>
+    </div>
+    <p class="sec-intro">Real photos of you and your space beat any stock library. List what you already have, and what we'd need to shoot.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">6.1</span> Tick what you <em>already have</em>:</p>
+      <div class="options">
+        <span class="opt">Professional headshot</span>
+        <span class="opt">Action photos (working with clients)</span>
+        <span class="opt">Photos of the practice space</span>
+        <span class="opt">Logo / brand mark</span>
+        <span class="opt">Logo source files (.ai / .svg)</span>
+        <span class="opt">Brand colours / fonts already chosen</span>
+        <span class="opt">Existing site / domain</span>
+        <span class="opt">Testimonials in writing</span>
+        <span class="opt">Video clips</span>
+        <span class="opt">Instagram with usable photos</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">6.2</span> Photos you'd <em>want</em> on the site if money/time were no issue. Sketch the moments:</p>
+      <p class="hint">e.g. "hands working on a calf," "me explaining something with a client across a desk," "the studio at golden hour."</p>
+      <div class="photo-grid">
+        <div class="ph">Idea 1</div>
+        <div class="ph">Idea 2</div>
+        <div class="ph">Idea 3</div>
+        <div class="ph">Idea 4</div>
+        <div class="ph">Idea 5</div>
+        <div class="ph">Idea 6</div>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">6.3</span> Are you comfortable being on camera, on the site? Hands only? Face? Body in motion?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">6.4</span> Open to a half-day photoshoot if needed? Any photographer you've worked with?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 07 — CLIENTS & GOALS ============ -->
+  <section class="qsec tone-c">
+    <div class="sec-head">
+      <span class="num">07</span>
+      <h2>Clients &amp; <em>goals.</em></h2>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.1</span> Describe your <em>ideal</em> client. Age, lifestyle, what they do for work, what they do for sport, what they read, what's keeping them up at night.</p>
+      <p class="hint">If you can name a real person who fits — write their first name and describe them.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.2</span> Who do you <em>not</em> want this site to attract?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.3</span> When this site is doing its job, what happens? Tick all that count as success:</p>
+      <div class="options">
+        <span class="opt">More booking inquiries</span>
+        <span class="opt">Higher-quality inquiries (right fit)</span>
+        <span class="opt">More NLP clients specifically</span>
+        <span class="opt">Existing clients refer more easily</span>
+        <span class="opt">Press / media find me</span>
+        <span class="opt">Athletes / teams reach out</span>
+        <span class="opt">Just a serious presence — not embarrassed to share the link</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.4</span> Approximately how many active clients do you have now? How many would you <em>like</em> to have?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.5</span> What are clients searching for online when they should be finding you? (Keywords / phrases.)</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">7.6</span> Three clients (with permission) you could ask for a written testimonial. Names + how you'd describe them.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 08 — PRACTICAL DETAILS ============ -->
+  <section class="qsec tone-b">
+    <div class="sec-head">
+      <span class="num">08</span>
+      <h2>Practical <em>details.</em></h2>
+    </div>
+    <p class="sec-intro">The stuff that goes in the footer, the contact section, and behind the scenes.</p>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.1</span> Full legal name + the name you want displayed:</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.2</span> Practice address (or just neighbourhood — "Plateau," "Mile End," etc.):</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.3</span> Email address(es) for the site:</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.4</span> Phone number — and is it OK to display, or "by request only"?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.5</span> Working hours. Days off.</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.6</span> Booking system you use (or want to use): Acuity, Calendly, GOrendezvous, by email, other?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.7</span> Social media handles you want linked. Which are active, which to hide?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.8</span> Domain name — do you own one? Want a specific one?</p>
+      <div class="answer short"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.9</span> Languages you offer sessions in:</p>
+      <div class="options">
+        <span class="opt">French</span>
+        <span class="opt">English</span>
+        <span class="opt">Spanish</span>
+        <span class="opt">Other: ___________</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">8.10</span> Cancellation policy / payment methods accepted:</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 09 — CONTENT WISH-LIST ============ -->
+  <section class="qsec tone-a">
+    <div class="sec-head">
+      <span class="num">09</span>
+      <h2>Content <em>wish-list.</em></h2>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">9.1</span> Tick anything you want on the site beyond the basics:</p>
+      <div class="options">
+        <span class="opt">Blog / journal</span>
+        <span class="opt">Newsletter signup</span>
+        <span class="opt">Online booking</span>
+        <span class="opt">FAQ section</span>
+        <span class="opt">Pricing visible</span>
+        <span class="opt">Pricing on request only</span>
+        <span class="opt">Gift certificates</span>
+        <span class="opt">Online sessions / video calls</span>
+        <span class="opt">Resources / downloads (PDFs)</span>
+        <span class="opt">Press / mentions section</span>
+        <span class="opt">Embedded videos</span>
+        <span class="opt">Map / location embed</span>
+      </div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">9.2</span> Three FAQs you get over and over from new clients?</p>
+      <div class="answer taller"><span class="lines"></span></div>
+    </div>
+
+    <div class="q">
+      <p class="label"><span class="qnum">9.3</span> Anything you want explicitly addressed because people get it wrong about you / your work?</p>
+      <div class="answer tall"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ 10 — ANYTHING ELSE ============ -->
+  <section class="qsec tone-c">
+    <div class="sec-head">
+      <span class="num">10</span>
+      <h2>Anything <em>else.</em></h2>
+    </div>
+    <div class="q">
+      <p class="label"><span class="qnum">10.1</span> Anything I didn't ask that you want me to know.</p>
+      <p class="hint">Worries, hopes, things you're proud of, things you're shy about, dreams for the practice in 2 years. Use the space.</p>
+      <div class="answer taller"><span class="lines"></span></div>
+      <div class="answer taller" style="margin-top:8px;"><span class="lines"></span></div>
+    </div>
+  </section>
+
+
+  <!-- ============ CLOSING ============ -->
+  <div class="closing">
+    <h2>Thank you, <em>Kristof.</em></h2>
+    <p>The more honest you are here, the more this site will sound like you instead of every other practitioner with the same certifications. Once I have your answers, I'll come back with a single revised draft — copy, layout, and asset list — for you to mark up.</p>
+    <p>If a question stalled you, just skip it. We can fill blanks together on a call.</p>
+    <div class="sign">
+      <div>
+        <span>Signed</span>
+        <span class="line"></span>
+      </div>
+      <div>
+        <span>Date</span>
+        <span class="line"></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
