@@ -4,7 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Holistik Performance — Coaching PNL · Kristof Robert</title>
-<meta name="description" content="Coaching en Programmation Neuro-Linguistique avec Kristof Robert. Préparation physique et mentale. Montréal, en présence ou en ligne." />
+<meta name="description" content="Coaching personnel en Programmation Neuro-Linguistique avec Kristof Robert. Préparation physique et mentale. Longueuil, Québec — en présence ou en ligne." />
+<meta name="keywords" content="coach de vie, coach personnel, coach PNL, programmation neuro-linguistique, développement personnel, croissance personnelle, atteindre objectifs, Longueuil, Montréal, Québec" />
+
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0A1118">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,32 +19,39 @@
 
 <style>
 /* ─────────────────────────────────────────────
-   TOKENS — dark, calm, modern.
-   Background: deep midnight, drifting toward
-   a teal-leaning navy. Text: warm off-white.
-   Accents: pulled from the Holistik mark
-   (teal, amber, magenta, blue), used sparingly.
+   TOKENS — dark, calm, earthy.
+   Background: deep warm charcoal, leaning
+   into umber. Text: warm bone.
+   Accents: muted earth — clay, sage, ochre, sand.
+   The brand mark (4 arcs) keeps its native colors
+   as the only saturated element on the page.
    ───────────────────────────────────────────── */
 :root{
-  --bg:           #0A1118;
-  --bg-soft:      #0F1822;
-  --bg-elev:      #131F2C;
-  --bg-glass:     rgba(15, 24, 34, 0.72);
+  --bg:           #14110E;          /* warm charcoal */
+  --bg-soft:      #1B1814;
+  --bg-elev:      #221E18;
+  --bg-glass:     rgba(27, 24, 20, 0.78);
 
-  --ink:          #E8EEF2;        /* primary text */
-  --ink-soft:     #B6C3CE;        /* body text */
-  --ink-mute:     #6E8090;        /* labels, meta */
-  --line:         rgba(232, 238, 242, 0.10);
-  --line-soft:    rgba(232, 238, 242, 0.06);
+  --ink:          #EDE6DA;          /* warm bone */
+  --ink-soft:     #C2B6A4;          /* body text */
+  --ink-mute:     #847764;          /* labels, meta */
+  --line:         rgba(237, 230, 218, 0.10);
+  --line-soft:    rgba(237, 230, 218, 0.06);
 
-  /* Brand mark colors — used as accents only */
+  /* Earth accents — muted, never neon */
+  --clay:         #B97A56;          /* primary accent — warm terracotta */
+  --sage:         #7A8466;          /* secondary — calm green */
+  --ochre:        #C99B5E;
+  --sand:         #D9C9A9;
+
+  /* Logo mark colors — kept for the SVG only */
   --teal:         #3FCFC8;
   --amber:        #F5C24A;
   --magenta:      #E84A8E;
   --blue:         #5B86E5;
 
-  --accent:       var(--teal);
-  --accent-warm:  var(--amber);
+  --accent:       var(--clay);
+  --accent-warm:  var(--ochre);
 
   --serif:"Cormorant Garamond", Georgia, serif;
   --sans:"Inter Tight", system-ui, sans-serif;
@@ -62,14 +76,14 @@ body{
   overflow-x:hidden;
   /* subtle ambient glow at top */
   background-image:
-    radial-gradient(900px 500px at 80% -10%, rgba(63, 207, 200, 0.08), transparent 60%),
-    radial-gradient(700px 400px at 0% 30%, rgba(91, 134, 229, 0.06), transparent 60%);
+    radial-gradient(900px 500px at 80% -10%, rgba(185, 122, 86, 0.10), transparent 60%),
+    radial-gradient(700px 400px at 0% 30%, rgba(217, 201, 169, 0.05), transparent 60%);
   background-attachment: fixed;
 }
 img{max-width:100%;display:block;}
 a{color:inherit;}
 button{font-family:inherit;cursor:pointer;}
-::selection{background:var(--teal);color:var(--bg);}
+::selection{background:var(--clay);color:var(--bg);}
 
 /* ─── Type ─── */
 .eyebrow{
@@ -81,7 +95,7 @@ button{font-family:inherit;cursor:pointer;}
   display:inline-flex;align-items:center;gap:12px;
 }
 .eyebrow::before{
-  content:"";width:22px;height:1px;background:var(--teal);display:inline-block;
+  content:"";width:22px;height:1px;background:var(--clay);display:inline-block;
 }
 h1,h2,h3,h4{
   font-family:var(--serif);
@@ -96,7 +110,7 @@ h1{font-size:clamp(56px, 9vw, 132px); font-weight:300; letter-spacing:-0.03em;}
 h2{font-size:clamp(34px, 4.4vw, 60px); font-weight:300;}
 h3{font-size:clamp(22px, 2.2vw, 30px); font-weight:400;}
 p{margin:0;text-wrap:pretty;color:var(--ink-soft);}
-em.serif-italic{font-style:italic;color:var(--teal);font-weight:300;}
+em.serif-italic{font-style:italic;color:var(--clay);font-weight:300;}
 
 /* ─── Layout shells ─── */
 .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
@@ -121,7 +135,7 @@ section{position:relative;}
   display:flex;align-items:center;gap:12px;
   text-decoration:none;color:var(--ink);
 }
-.brand .logo-mark{width:32px;height:32px;flex:none;}
+.brand .logo-mark{width:36px;height:36px;flex:none;object-fit:contain;}
 .brand .wordmark{
   font-family:var(--serif);
   font-size:21px;
@@ -129,9 +143,10 @@ section{position:relative;}
   letter-spacing:-0.005em;
   line-height:1;
   display:flex;flex-direction:column;gap:3px;
+  white-space:nowrap;
 }
 .brand .wordmark .sub{
-  font-family:var(--mono);font-size:9.5px;
+  font-family:var(--mono);font-size:10px;
   letter-spacing:0.16em;text-transform:uppercase;
   color:var(--ink-mute);font-weight:400;
 }
@@ -140,17 +155,18 @@ section{position:relative;}
 .nav-links a{
   font-size:13.5px;letter-spacing:0.02em;text-decoration:none;color:var(--ink-soft);
   position:relative;padding:6px 0;
+  white-space:nowrap;
   transition:color .3s ease;
 }
 .nav-links a:hover{color:var(--ink);}
 .nav-links a::after{
-  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--teal);
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--clay);
   transition:width .35s ease;
 }
 .nav-links a:hover::after{width:100%;}
 .nav-cta{
   font-size:13px;padding:11px 20px;border-radius:999px;
-  background:var(--teal);color:var(--bg);border:none;
+  background:var(--clay);color:var(--bg);border:none;
   font-weight:500;letter-spacing:0.02em;
   transition:background .3s ease, transform .3s ease;
 }
@@ -172,6 +188,11 @@ section{position:relative;}
   .nav-links .mobile-hide{display:none;}
   .nav-cta{padding:9px 14px;font-size:12px;}
   .brand .wordmark{font-size:18px;}
+  .brand .wordmark .sub{display:none;}
+}
+@media (max-width:1100px){
+  .nav-links{gap:24px;}
+  .brand .wordmark{font-size:19px;}
 }
 
 /* ─── HERO ─── */
@@ -192,8 +213,8 @@ section{position:relative;}
   width:90vw;height:90vw;
   border-radius:50%;
   background:
-    radial-gradient(circle at 35% 35%, rgba(63, 207, 200, 0.18), transparent 55%),
-    radial-gradient(circle at 65% 70%, rgba(91, 134, 229, 0.10), transparent 60%);
+    radial-gradient(circle at 35% 35%, rgba(185, 122, 86, 0.20), transparent 55%),
+    radial-gradient(circle at 65% 70%, rgba(217, 201, 169, 0.07), transparent 60%);
   filter: blur(10px);
   pointer-events:none;
   z-index:0;
@@ -204,7 +225,7 @@ section{position:relative;}
   left:-20vw;bottom:-30vw;
   width:60vw;height:60vw;
   border-radius:50%;
-  background:radial-gradient(circle at 50% 50%, rgba(232, 74, 142, 0.06), transparent 65%);
+  background:radial-gradient(circle at 50% 50%, rgba(122, 132, 102, 0.07), transparent 65%);
   filter: blur(20px);
   pointer-events:none;
   z-index:0;
@@ -223,7 +244,7 @@ section{position:relative;}
 .hero h1 .accent{
   font-style:italic;
   font-weight:300;
-  background: linear-gradient(110deg, var(--teal) 0%, var(--blue) 55%, var(--magenta) 100%);
+  background: linear-gradient(110deg, var(--clay) 0%, var(--ochre) 55%, var(--sage) 100%);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -245,10 +266,10 @@ section{position:relative;}
   transition:transform .3s ease, background .3s ease, color .3s ease, border-color .3s ease;
   cursor:pointer;font-family:inherit;
 }
-.btn-primary{background:var(--teal);color:var(--bg);}
+.btn-primary{background:var(--clay);color:var(--bg);}
 .btn-primary:hover{background:#5DDDD5;transform:translateY(-2px);}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.btn-ghost:hover{border-color:var(--clay);color:var(--clay);}
 .btn .arrow{transition:transform .3s ease;}
 .btn:hover .arrow{transform:translateX(4px);}
 
@@ -256,12 +277,12 @@ section{position:relative;}
   margin-top: 72px; display:flex; gap:48px; flex-wrap:wrap;
   border-top:1px solid var(--line); padding-top: 32px;
 }
-.hero-meta div{font-size:13px;color:var(--ink-mute);line-height:1.4;}
+.hero-meta div{font-size:15px;color:var(--ink-mute);line-height:1.5;}
 .hero-meta strong{
   display:block; color:var(--ink); font-family:var(--serif);
-  font-size:26px; font-weight:300; margin-bottom:6px; letter-spacing:-0.015em;
+  font-size:32px; font-weight:300; margin-bottom:8px; letter-spacing:-0.015em;
 }
-.hero-meta strong .em{color:var(--teal);font-style:italic;}
+.hero-meta strong .em{color:var(--clay);font-style:italic;}
 
 .hero-portrait{
   position:relative;z-index:2;
@@ -297,13 +318,13 @@ section{position:relative;}
   display:flex;align-items:center;gap:10px;color:var(--ink);
 }
 .hero-portrait .badge .dot{
-  width:7px;height:7px;border-radius:50%;background:var(--teal);
-  box-shadow:0 0 0 4px rgba(63, 207, 200, 0.18);
+  width:7px;height:7px;border-radius:50%;background:var(--clay);
+  box-shadow:0 0 0 4px rgba(185, 122, 86, 0.20);
   animation: pulse 2.4s ease-in-out infinite;
 }
 @keyframes pulse{
-  0%,100%{box-shadow:0 0 0 4px rgba(63, 207, 200, 0.18);}
-  50%{box-shadow:0 0 0 7px rgba(63, 207, 200, 0.05);}
+  0%,100%{box-shadow:0 0 0 4px rgba(185, 122, 86, 0.20);}
+  50%{box-shadow:0 0 0 7px rgba(185, 122, 86, 0.06);}
 }
 
 @media (max-width:900px){
@@ -314,7 +335,7 @@ section{position:relative;}
 /* ─── Quote ribbon (signature line) ─── */
 .ribbon{
   border-block:1px solid var(--line);
-  background: linear-gradient(180deg, transparent, rgba(63, 207, 200, 0.03) 50%, transparent);
+  background: linear-gradient(180deg, transparent, rgba(185, 122, 86, 0.04) 50%, transparent);
   padding: clamp(50px, 7vw, 90px) var(--pad);
   text-align:center;
 }
@@ -328,7 +349,7 @@ section{position:relative;}
   color:var(--ink);
   text-wrap:balance;
 }
-.ribbon .quote em{color:var(--teal);font-style:italic;}
+.ribbon .quote em{color:var(--clay);font-style:italic;}
 .ribbon .quote-cite{
   display:block;margin-top:24px;
   font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
@@ -348,7 +369,7 @@ section{position:relative;}
   margin-bottom:32px;
   text-wrap:balance;
 }
-.about-lead em{color:var(--teal);font-style:italic;}
+.about-lead em{color:var(--clay);font-style:italic;}
 .about-body p + p{margin-top:20px;}
 .about-body{color:var(--ink-soft);max-width:58ch;font-size:16px;}
 
@@ -368,12 +389,12 @@ section{position:relative;}
 }
 .three-words div:not(:last-child){border-right:1px solid var(--line);}
 .three-words div .num{
-  display:block;font-family:var(--mono);font-style:normal;font-size:10px;
-  letter-spacing:0.2em;color:var(--ink-mute);margin-bottom:8px;
+  display:block;font-family:var(--mono);font-style:normal;font-size:12px;
+  letter-spacing:0.2em;color:var(--ink-mute);margin-bottom:10px;
 }
-.three-words div:nth-child(1) .num{color:var(--teal);}
-.three-words div:nth-child(2) .num{color:var(--amber);}
-.three-words div:nth-child(3) .num{color:var(--magenta);}
+.three-words div:nth-child(1) .num{color:var(--clay);}
+.three-words div:nth-child(2) .num{color:var(--ochre);}
+.three-words div:nth-child(3) .num{color:var(--sage);}
 
 /* Journey timeline (bodybuilding → massage → trainer → NLP) */
 .journey{
@@ -386,14 +407,14 @@ section{position:relative;}
   border-top:1px solid var(--line);
 }
 .journey .step::before{
-  content:"";position:absolute;left:0;top:-1px;height:1px;width:40px;background:var(--teal);
+  content:"";position:absolute;left:0;top:-1px;height:1px;width:40px;background:var(--clay);
 }
-.journey .step .age{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--teal);}
+.journey .step .age{font-family:var(--mono);font-size:13px;letter-spacing:0.18em;color:var(--clay);}
 .journey .step h4{
-  font-family:var(--serif);font-size:21px;font-weight:400;color:var(--ink);
-  margin:8px 0 8px;
+  font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);
+  margin:10px 0 10px;
 }
-.journey .step p{font-size:13.5px;color:var(--ink-mute);line-height:1.55;}
+.journey .step p{font-size:15.5px;color:var(--ink-mute);line-height:1.6;}
 
 @media (max-width:780px){
   .about-grid{grid-template-columns:1fr;}
@@ -421,12 +442,12 @@ section{position:relative;}
 }
 .nlp-card::before{
   content:"";position:absolute;inset:0;
-  background: linear-gradient(135deg, rgba(63, 207, 200, 0.06) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(185, 122, 86, 0.07) 0%, transparent 50%);
   pointer-events:none;
 }
 .nlp-card .label{
   font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--teal);
+  color:var(--clay);
   display:inline-block;margin-bottom:24px;
 }
 .nlp-card h3{
@@ -438,13 +459,13 @@ section{position:relative;}
   margin-bottom:20px;
   position:relative;z-index:1;
 }
-.nlp-card h3 em{color:var(--teal);font-style:italic;}
+.nlp-card h3 em{color:var(--clay);font-style:italic;}
 .nlp-card p{font-size:16px;line-height:1.7;color:var(--ink-soft);position:relative;z-index:1;}
 .nlp-card p + p{margin-top:14px;}
 .nlp-card .abbr{
   display:inline-block;padding:1px 8px;border-radius:6px;
-  background:rgba(63, 207, 200, 0.12);font-family:var(--mono);font-size:0.78em;
-  letter-spacing:0.04em;color:var(--teal);margin:0 2px;
+  background:rgba(185, 122, 86, 0.14);font-family:var(--mono);font-size:0.78em;
+  letter-spacing:0.04em;color:var(--clay);margin:0 2px;
 }
 
 .nlp-aside{
@@ -459,11 +480,11 @@ section{position:relative;}
 }
 .nlp-fact .num{
   font-family:var(--serif);font-style:italic;font-weight:300;
-  font-size:34px;color:var(--teal);line-height:1;flex:none;
+  font-size:34px;color:var(--clay);line-height:1;flex:none;
   min-width:44px;
 }
 .nlp-fact .label{
-  font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
   color:var(--ink-mute);display:block;margin-bottom:4px;
 }
 .nlp-fact .val{font-size:14px;color:var(--ink-soft);line-height:1.5;}
@@ -493,10 +514,10 @@ section{position:relative;}
   transition: background .3s ease;
   cursor:default;
 }
-.session-row:hover{background: rgba(63, 207, 200, 0.03);}
+.session-row:hover{background: rgba(185, 122, 86, 0.04);}
 .session-row .n{
   font-family:var(--serif);font-style:italic;font-weight:300;
-  font-size:42px;color:var(--teal);line-height:1;
+  font-size:42px;color:var(--clay);line-height:1;
 }
 .session-row .body h4{
   font-family:var(--serif);font-size:22px;font-weight:400;
@@ -526,16 +547,16 @@ section{position:relative;}
 .format-row:last-of-type{border-bottom:none;}
 .format-row .ico{
   width:32px;height:32px;flex:none;border-radius:10px;
-  background: rgba(63, 207, 200, 0.12);
+  background: rgba(185, 122, 86, 0.14);
   display:flex;align-items:center;justify-content:center;
-  color:var(--teal);
+  color:var(--clay);
 }
 .format-row .label{
-  font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
   color:var(--ink-mute);display:block;margin-bottom:4px;
 }
 .format-row .val{font-size:14px;color:var(--ink);line-height:1.5;}
-.format-card .micro{font-size:12px;color:var(--ink-mute);font-style:italic;line-height:1.5;}
+.format-card .micro{font-size:13px;color:var(--ink-mute);font-style:italic;line-height:1.55;}
 
 @media (max-width:880px){
   .process-grid{grid-template-columns:1fr;}
@@ -547,11 +568,124 @@ section{position:relative;}
   .session-row .when{padding-left:0;}
 }
 
+/* ─── TESTIMONIALS ─── */
+.testimonials-head{
+  display:grid;grid-template-columns: 1fr 1.4fr; gap: clamp(30px, 6vw, 90px);
+  align-items:end; margin-bottom: 70px;
+}
+.testimonials-head .lead{
+  color:var(--ink-soft); max-width:54ch; font-size:16.5px; line-height:1.7;
+}
+@media (max-width:780px){
+  .testimonials-head{grid-template-columns:1fr;}
+}
+.testi-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 32px);
+}
+.testi-card{
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(28px, 2.4vw, 38px);
+  display:flex; flex-direction:column; gap:22px;
+  position:relative;
+  transition: border-color .4s ease, transform .4s ease;
+}
+.testi-card:hover{ border-color: rgba(185,122,86,0.35); transform: translateY(-3px); }
+.testi-card .mark{
+  font-family:var(--serif);
+  font-size: 56px; line-height: 0.6;
+  color: var(--clay); opacity: 0.5;
+  font-style: italic; font-weight: 300;
+  height: 18px;
+}
+.testi-card .body{
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--ink);
+  text-wrap: pretty;
+  flex: 1;
+}
+.testi-card .body em{ font-style:italic; color: var(--clay); }
+.testi-card .body p + p{ margin-top: 14px; }
+.testi-card .who{
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  display:flex; flex-direction:column; gap:6px;
+}
+.testi-card .who .name{
+  font-family: var(--serif); font-size: 19px; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.005em;
+}
+.testi-card .who .ctx{
+  font-size: 13.5px; color: var(--ink-mute); line-height: 1.5;
+  max-width: 38ch;
+}
+.testi-card .who .meta{
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute);
+  margin-top: 4px;
+}
+
+@media (max-width: 980px){
+  .testi-grid{grid-template-columns: 1fr; gap: 18px;}
+}
+
+/* ─── FAQ ─── */
+.faq-head{ max-width: 760px; margin-bottom: 56px; }
+.faq-list{
+  border-top: 1px solid var(--line);
+  max-width: 880px;
+}
+.faq-item{
+  border-bottom: 1px solid var(--line);
+}
+.faq-q{
+  width: 100%;
+  background: transparent; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 26px 0;
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.7vw, 26px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-align: left;
+  transition: color .3s ease;
+}
+.faq-q:hover{ color: var(--clay); }
+.faq-q .plus{
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 14px; color: var(--ink-soft);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), background .3s ease, border-color .3s ease;
+}
+.faq-item.open .faq-q .plus{
+  transform: rotate(45deg);
+  background: var(--clay); color: var(--bg); border-color: var(--clay);
+}
+.faq-a{
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .4s cubic-bezier(.2,.7,.2,1);
+}
+.faq-item.open .faq-a{ grid-template-rows: 1fr; }
+.faq-a > div{ overflow: hidden; }
+.faq-a p{
+  padding: 0 0 28px;
+  font-size: 16px; line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
 /* ─── PHILOSOPHY ─── */
 .philosophy{
   background:
-    radial-gradient(800px 500px at 80% 20%, rgba(63, 207, 200, 0.10), transparent 60%),
-    radial-gradient(700px 400px at 10% 80%, rgba(91, 134, 229, 0.08), transparent 60%),
+    radial-gradient(800px 500px at 80% 20%, rgba(185, 122, 86, 0.08), transparent 60%),
+    radial-gradient(700px 400px at 10% 80%, rgba(122, 132, 102, 0.07), transparent 60%),
     var(--bg-soft);
   border-block:1px solid var(--line);
   padding: clamp(80px, 10vw, 130px) var(--pad);
@@ -568,7 +702,7 @@ section{position:relative;}
   color:var(--ink);
   text-wrap:balance;
 }
-.philosophy h2 em{color:var(--teal);font-style:italic;}
+.philosophy h2 em{color:var(--clay);font-style:italic;}
 .philosophy p{font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:50ch;}
 .philosophy p + p{margin-top:20px;}
 .signature{
@@ -585,6 +719,82 @@ section{position:relative;}
 }
 @media (max-width:820px){.philosophy-inner{grid-template-columns:1fr;}}
 
+/* ─── EDITORIAL PHOTOS (mid-page portraits) ─── */
+.editorial-photo{
+  position:relative;
+  border-radius: 4px;
+  overflow:hidden;
+  background:var(--bg-2);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,.6), 0 0 0 1px var(--line);
+}
+.editorial-photo img{
+  display:block;width:100%;height:100%;object-fit:cover;
+  filter: brightness(.92) contrast(1.04);
+  transition:transform .9s cubic-bezier(.2,.6,.2,1);
+}
+.editorial-photo:hover img{transform:scale(1.025);}
+.editorial-photo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background: linear-gradient(180deg, transparent 55%, rgba(10,17,24,.55) 100%);
+}
+.editorial-photo .caption{
+  position:absolute;left:18px;bottom:16px;z-index:2;
+  font-family:var(--mono);
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+}
+.editorial-photo .caption::before{
+  content:"";display:inline-block;width:18px;height:1px;background:var(--clay);
+  vertical-align:middle;margin-right:10px;transform:translateY(-2px);
+}
+
+/* About — portrait band between lead and journey */
+.about-band{
+  margin-top: 80px;
+  display:grid;grid-template-columns: 1.1fr 1fr;gap:clamp(28px, 5vw, 64px);
+  align-items:stretch;
+}
+.about-band .editorial-photo{aspect-ratio: 4/5;}
+.about-band .band-text{
+  align-self:center;
+}
+.about-band .band-quote{
+  font-family:var(--serif);
+  font-style:italic;font-weight:300;
+  font-size:clamp(22px, 2vw, 30px);
+  line-height:1.35;color:var(--ink);
+  text-wrap:balance;
+}
+.about-band .band-quote em{color:var(--clay);font-style:italic;}
+.about-band .band-meta{
+  margin-top:24px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-mute);
+}
+@media (max-width:780px){.about-band{grid-template-columns:1fr;}}
+
+/* NLP — portrait band */
+.nlp-band{
+  margin-top: 70px;
+  display:grid;grid-template-columns: 1fr 1.1fr;gap: clamp(28px, 5vw, 64px);
+  align-items:center;
+}
+.nlp-band .editorial-photo{aspect-ratio: 3/4;}
+.nlp-band .band-quote{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(24px, 2.4vw, 34px);
+  line-height:1.3;color:var(--ink);text-wrap:balance;
+}
+.nlp-band .band-quote em{color:var(--clay);font-style:italic;}
+.nlp-band .band-meta{
+  margin-top:18px;color:var(--ink-soft);font-size:16px;line-height:1.7;max-width:46ch;
+}
+@media (max-width:880px){.nlp-band{grid-template-columns:1fr;}}
+
+/* Philosophy — portrait swap-in */
+.philosophy-portrait{aspect-ratio:3/4;}
+.philosophy-portrait .editorial-photo{height:100%;}
+
 /* ─── INSTAGRAM small ─── */
 .insta{
   display:flex;align-items:center;justify-content:space-between;gap:32px;
@@ -598,10 +808,10 @@ section{position:relative;}
   font-family:var(--serif);font-size:clamp(26px, 2.6vw, 36px);font-weight:300;color:var(--ink);
   margin-bottom:10px;
 }
-.insta-copy h3 em{color:var(--teal);font-style:italic;}
+.insta-copy h3 em{color:var(--clay);font-style:italic;}
 .insta-copy p{color:var(--ink-soft);max-width:48ch;font-size:15.5px;}
 .insta-handle{
-  font-family:var(--mono);font-size:13px;color:var(--teal);
+  font-family:var(--mono);font-size:13px;color:var(--clay);
   margin-top:14px;display:inline-block;letter-spacing:0.04em;text-decoration:none;
 }
 .insta-handle:hover{text-decoration:underline;}
@@ -624,7 +834,7 @@ section{position:relative;}
   margin-top:6px;display:block;text-decoration:none;color:var(--ink);
   transition:color .3s ease;
 }
-.contact-info .value:hover{color:var(--teal);}
+.contact-info .value:hover{color:var(--clay);}
 
 form{
   background:var(--bg-elev);
@@ -654,20 +864,20 @@ form{
 .field select option{background:var(--bg-elev);color:var(--ink);}
 .field textarea{min-height:120px;resize:vertical;}
 .field input::placeholder,.field textarea::placeholder{color:var(--ink-mute);opacity:0.7;}
-.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--teal);}
-.field.invalid input,.field.invalid select,.field.invalid textarea{border-bottom-color:var(--magenta);}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-color:var(--clay);}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-bottom-color:var(--sage);}
 .field .err{
-  color:var(--magenta);font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
+  color:var(--sage);font-family:var(--mono);font-size:11px;letter-spacing:0.08em;
   display:none;
 }
 .field.invalid .err{display:block;}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 @media (max-width:640px){.field-row{grid-template-columns:1fr;}}
 form .submit-row{display:flex;align-items:center;gap:18px;margin-top:14px;flex-wrap:wrap;}
-.form-note{font-size:12px;color:var(--ink-mute);}
+.form-note{font-size:13px;color:var(--ink-mute);}
 .form-success{
-  display:none;background:rgba(63, 207, 200, 0.12);color:var(--teal);
-  border:1px solid rgba(63, 207, 200, 0.25);
+  display:none;background:rgba(185, 122, 86, 0.14);color:var(--clay);
+  border:1px solid rgba(185, 122, 86, 0.28);
   padding:16px 20px;border-radius:14px;font-size:14px;
 }
 .form-success.show{display:block;animation:fadeUp .5s ease;}
@@ -695,7 +905,7 @@ footer a{
   color:var(--ink-soft);text-decoration:none;display:block;
   font-size:14px;padding:5px 0;transition:color .3s ease;
 }
-footer a:hover{color:var(--teal);}
+footer a:hover{color:var(--clay);}
 .footer-bottom{
   max-width:var(--maxw);margin:60px auto 0;padding-top:24px;
   border-top:1px solid var(--line-soft);
@@ -715,40 +925,6 @@ footer a:hover{color:var(--teal);}
   *{animation:none!important;transition:none!important;}
   .reveal{opacity:1;transform:none;}
 }
-
-/* ─── PRINT STYLES ─── */
-@media print{
-  @page{ size: A4 portrait; margin: 14mm; }
-  *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; animation:none !important; transition:none !important; }
-  html,body{ background:#0A1118 !important; color:#E8EEF2 !important; }
-  body{ background-image:none !important; font-size:11pt; line-height:1.5; }
-  .reveal{ opacity:1 !important; transform:none !important; }
-  .nav{ display:none !important; }
-  .hero{ min-height:auto !important; padding:0 !important; grid-template-columns:1.2fr 1fr !important; gap:30px !important; page-break-after:always; break-after:page; }
-  .hero::before,.hero::after{ display:none !important; }
-  .hero h1{ font-size:42pt !important; }
-  .hero-portrait{ max-width:340px !important; box-shadow:none !important; }
-  .hero-portrait img{ filter:none !important; }
-  .hero-meta{ margin-top:30px !important; padding-top:18px !important; }
-  .ribbon{ padding:30px 0 !important; page-break-after:always; break-after:page; }
-  .ribbon .quote{ font-size:18pt !important; }
-  section, .philosophy{ page-break-inside:avoid; break-inside:avoid; padding:30px 0 !important; }
-  .section-pad{ padding:30px 0 !important; }
-  .about-grid, .nlp-explainer, .process-grid, .philosophy-inner, .contact-grid{ gap:30px !important; }
-  .journey{ margin-top:40px !important; gap:14px !important; }
-  h2{ font-size:24pt !important; }
-  h3{ font-size:16pt !important; }
-  .nlp-card, .format-card, form, .insta, .nlp-fact{ background:#131F2C !important; border:1px solid rgba(232,238,242,0.10) !important; box-shadow:none !important; page-break-inside:avoid; break-inside:avoid; }
-  .session-row{ page-break-inside:avoid; break-inside:avoid; }
-  #about, #nlp, #process, .philosophy, #contact{ page-break-before:auto; }
-  .philosophy{ background:#0F1822 !important; }
-  .insta + section, footer{ page-break-before:always; break-before:page; }
-  footer{ margin-top:30px !important; padding:30px 0 0 !important; }
-  a{ color:inherit !important; text-decoration:none !important; }
-  .lang-toggle, .nav-cta, .btn{ display:none !important; }
-  /* hide tweaks/react bits if any leaked */
-  #tweaks-root{ display:none !important; }
-}
 </style>
 </head>
 <body>
@@ -756,61 +932,54 @@ footer a:hover{color:var(--teal);}
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav" aria-label="Primary">
   <a href="#top" class="brand" aria-label="Holistik Performance home">
-    <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
-      <g fill="none" stroke-width="14" stroke-linecap="round">
-        <path d="M 22 28 A 32 32 0 0 1 78 28" stroke="#3FCFC8"/>
-        <path d="M 78 28 A 32 32 0 0 1 78 72" stroke="#F5C24A"/>
-        <path d="M 78 72 A 32 32 0 0 1 22 72" stroke="#E84A8E"/>
-        <path d="M 22 72 A 32 32 0 0 1 22 28" stroke="#5B86E5"/>
-      </g>
-    </svg>
+    <img class="logo-mark" src="img/logo-mark.png" alt="" aria-hidden="true"/>
     <span class="wordmark">
       <span>Holistik Performance</span>
-      <span class="sub" data-i18n="brand.tagline">Préparation physique et mentale</span>
+      <span class="sub" data-i18n="brand.tagline">Vivre en ses termes</span>
     </span>
   </a>
   <div class="nav-links">
     <a href="#about" class="mobile-hide" data-i18n="nav.about">À propos</a>
     <a href="#nlp" class="mobile-hide" data-i18n="nav.nlp">La PNL</a>
     <a href="#process" class="mobile-hide" data-i18n="nav.process">Le parcours</a>
-    <a href="#contact" class="mobile-hide" data-i18n="nav.contact">Contact</a>
+    <a href="#testimonials" class="mobile-hide" data-i18n="nav.testi">Témoignages</a>
+    <a href="#faq" class="mobile-hide" data-i18n="nav.faq">FAQ</a>
     <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
       <span class="lang-opt" data-lang-opt="fr">FR</span>
       <span class="lang-sep">/</span>
       <span class="lang-opt" data-lang-opt="en">EN</span>
     </button>
-    <button class="nav-cta" data-i18n="nav.cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Réserver</button>
+    <button class="nav-cta" data-i18n="nav.cta" onclick="window.open('https://calendly.com/kristofholistik','_blank','noopener')">Réserver</button>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <section id="top" class="hero">
   <div class="hero-copy">
-    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Coaching PNL · Montréal</span>
+    <span class="eyebrow reveal" data-i18n="hero.eyebrow">Coaching PNL · Longueuil, QC</span>
     <h1 class="reveal d2" data-i18n="hero.h1" data-i18n-html>
-      Vous aider à devenir<br/>
-      <span class="accent">la version</span><br/>
-      <span class="breath">que vous voulez devenir.</span>
+      Vivre <span class="breath">ta vie</span><br/>
+      <span class="accent">en tes</span> termes.
     </h1>
     <p class="hero-lead reveal d3" data-i18n="hero.lead">
-      Kristof Robert · coach certifié en Programmation Neuro-Linguistique. Un accompagnement structuré, orienté solutions, pour défaire les schémas qui vous limitent et construire ceux qui vous portent.
+      Kristof Robert · coach certifié en Programmation Neuro-Linguistique. Un accompagnement structuré, orienté solutions, pour bâtir une vie qui te ressemble — et avancer vers ce que tu veux vraiment.
     </p>
     <div class="hero-cta-row reveal d4">
-      <a href="#contact" class="btn btn-primary">
-        <span data-i18n="hero.cta1">Réserver une séance</span>
+      <a href="https://calendly.com/kristofholistik" target="_blank" rel="noopener" class="btn btn-primary">
+        <span data-i18n="hero.cta1">Réserver un appel exploratoire</span>
         <span class="arrow" aria-hidden="true">→</span>
       </a>
       <a href="#nlp" class="btn btn-ghost" data-i18n="hero.cta2">C'est quoi la PNL?</a>
     </div>
     <div class="hero-meta reveal d4">
-      <div><strong>5<span class="em">×1h</span></strong><span data-i18n="hero.meta1">Séances structurées,<br/>aux deux semaines</span></div>
-      <div><strong>3<span class="em">ans</span></strong><span data-i18n="hero.meta2">de formation au CQPNL,<br/>2022 — 2025</span></div>
-      <div><strong>2<span class="em">formats</span></strong><span data-i18n="hero.meta3">en présence à Montréal<br/>ou en ligne (Google&nbsp;Meet)</span></div>
+      <div><strong>5<span class="em">×1h</span></strong><span data-i18n="hero.meta1" data-i18n-html>Séances structurées,<br/>aux deux semaines</span></div>
+      <div><strong>3<span class="em">ans</span></strong><span data-i18n="hero.meta2" data-i18n-html>de formation au CQPNL,<br/>2022 — 2025</span></div>
+      <div><strong>2<span class="em">formats</span></strong><span data-i18n="hero.meta3" data-i18n-html>en présence à Longueuil<br/>ou en ligne (Google&nbsp;Meet)</span></div>
     </div>
   </div>
 
   <div class="hero-portrait reveal d2">
-    <img src="kristof.jpg" alt="Portrait de Kristof Robert" id="heroImg"/>
+    <img src="img/hero-portrait.jpg" alt="Portrait de Kristof Robert" id="heroImg"/>
     <div class="badge"><span class="dot"></span> <span data-i18n="hero.badge">Réservations ouvertes · Printemps 2026</span></div>
   </div>
 </section>
@@ -818,7 +987,7 @@ footer a:hover{color:var(--teal);}
 <!-- ============ SIGNATURE QUOTE ============ -->
 <div class="ribbon">
   <p class="quote" data-i18n="ribbon.quote" data-i18n-html>
-    « J'aide les gens à passer de la version qu'ils sont en ce moment <em>à la version d'eux-mêmes qu'ils ont envie de devenir.</em> »
+    « Ralentir <em>pour aller plus vite.</em> »
   </p>
   <span class="quote-cite" data-i18n="ribbon.cite">Kristof Robert · Coach PNL</span>
 </div>
@@ -834,7 +1003,7 @@ footer a:hover{color:var(--teal);}
     </div>
     <div>
       <p class="about-lead reveal" data-i18n="about.lead" data-i18n-html>
-        À 23 ans, je me suis fait coacher en PNL. J'ai vu les changements que ça apportait dans ma vie. <em>Un client massothérapie</em> me défiait sur tout ce que je disais — il avait fait sa formation aussi. Quelque chose s'est aligné.
+        À 23 ans, je me suis fait coacher en PNL et j'ai vu les changements positifs que ça apportait dans ma vie. Puis au même moment, j'avais <em>un client en massothérapie</em> qui avait également fait son cours en PNL — et il me <em>challengeait</em> sur tout ce que je disais. Alors je me suis dit qu'essayer la PNL serait peut-être une bonne idée.
       </p>
       <div class="about-body reveal d2">
         <p data-i18n="about.p1">
@@ -846,9 +1015,9 @@ footer a:hover{color:var(--teal);}
       </div>
 
       <div class="three-words reveal d3">
-        <div><span class="num">01</span>Passionné</div>
-        <div><span class="num">02</span>Investi</div>
-        <div><span class="num">03</span>Drôle</div>
+        <div><span class="num">01</span><span data-i18n="about.word1">Passionné</span></div>
+        <div><span class="num">02</span><span data-i18n="about.word2">Investi</span></div>
+        <div><span class="num">03</span><span data-i18n="about.word3">Drôle</span></div>
       </div>
     </div>
   </div>
@@ -873,7 +1042,21 @@ footer a:hover{color:var(--teal);}
     <div class="step">
       <span class="age" data-i18n="journey.s4age">25 ans →</span>
       <h4 data-i18n="journey.s4h">PNL</h4>
-      <p data-i18n="journey.s4p">Cours de base au CQPNL. J'ai adoré. C'était <em style="color:var(--teal);font-style:italic;">vraiment ça</em>. Trois ans de formation à temps partiel, jusqu'en mai 2025.</p>
+      <p data-i18n="journey.s4p" data-i18n-html>Cours de base au CQPNL. J'ai adoré. C'était <em style="color:var(--clay);font-style:italic;">vraiment ça</em>. Trois ans de formation à temps partiel, jusqu'en mai 2025.</p>
+    </div>
+  </div>
+
+  <!-- About band: portrait + quote -->
+  <div class="about-band reveal">
+    <div class="editorial-photo">
+      <img src="img/about-writing.jpg" alt="Kristof écrivant dans son cahier" loading="lazy"/>
+      <span class="caption" data-i18n="band.about.cap">Préparation de séance</span>
+    </div>
+    <div class="band-text">
+      <p class="band-quote" data-i18n="band.about.q" data-i18n-html>
+        Avant chaque séance, j'écris. <em>Tes mots, tes patterns, tes prochains pas.</em> Pour qu'on arrive prêts à avancer.
+      </p>
+      <div class="band-meta" data-i18n="band.about.meta">Longueuil · Pratique quotidienne</div>
     </div>
   </div>
 </section>
@@ -892,15 +1075,15 @@ footer a:hover{color:var(--teal);}
 
   <div class="nlp-explainer">
     <article class="nlp-card reveal">
-      <span class="label" data-i18n="nlp.cardLabel">Définition · en mes mots</span>
+      <span class="label" data-i18n="nlp.cardLabel">Définition</span>
       <h3 data-i18n="nlp.cardH" data-i18n-html>
         Une approche de coaching personnel <em>orientée vers les solutions</em>.
       </h3>
-      <p data-i18n="nlp.cardP1">
-        La PNL <span class="abbr">FR</span> ou NLP <span class="abbr">EN</span> permet aux gens d'atteindre leurs objectifs — personnels ou professionnels — en défaisant les schémas qui les limitent, pour en construire de nouveaux qui les soutiennent.
+      <p data-i18n="nlp.cardP1" data-i18n-html>
+        La PNL <span class="abbr">FR</span> ou NLP <span class="abbr">EN</span> permet au client d'atteindre ses objectifs — personnels ou professionnels — en mettant le focus sur les solutions.
       </p>
       <p data-i18n="nlp.cardP2">
-        Ce n'est pas une thérapie. On ne creuse pas le passé pour le creuser. On regarde ce qui se rejoue, on identifie le pattern, et on travaille — concrètement, vers l'avant — sur le résultat que vous voulez vivre.
+        On y parvient en déprogrammant des patterns limitants pour en créer de nouveaux qui te permettront d'avancer vers ton objectif. Ce n'est pas une thérapie — c'est concret, structuré, et tourné vers l'avant.
       </p>
     </article>
 
@@ -916,17 +1099,33 @@ footer a:hover{color:var(--teal);}
         <div class="num">5</div>
         <div>
           <span class="label" data-i18n="nlp.fact2Label">Programme</span>
-          <span class="val" data-i18n="nlp.fact2Val" data-i18n-html><strong>Cinq séances d'une heure</strong>, espacées de deux semaines. Format pensé pour vous rendre autonome.</span>
+          <span class="val" data-i18n="nlp.fact2Val" data-i18n-html><strong>Cinq séances d'une heure</strong>, espacées de deux semaines. Format pensé pour te rendre autonome.</span>
         </div>
       </div>
       <div class="nlp-fact">
         <div class="num">2</div>
         <div>
           <span class="label" data-i18n="nlp.fact3Label">Formats</span>
-          <span class="val" data-i18n="nlp.fact3Val" data-i18n-html><strong>En présence</strong> au bureau de Montréal, ou <strong>en ligne</strong> par Google Meet.</span>
+          <span class="val" data-i18n="nlp.fact3Val" data-i18n-html><strong>En présence</strong> au bureau de Longueuil, ou <strong>en ligne</strong> par Google Meet.</span>
         </div>
       </div>
     </aside>
+  </div>
+
+  <!-- NLP band: portrait + quote -->
+  <div class="nlp-band reveal">
+    <div class="editorial-photo">
+      <img src="img/nlp-pool.jpg" alt="Kristof Robert" loading="lazy"/>
+      <span class="caption" data-i18n="band.nlp.cap">PNL en pratique</span>
+    </div>
+    <div>
+      <p class="band-quote" data-i18n="band.nlp.q" data-i18n-html>
+        Pas une thérapie. <em class="serif-italic">Une méthode.</em>
+      </p>
+      <p class="band-meta" data-i18n="band.nlp.meta">
+        On regarde ce qui te bloque, on identifie le pattern, on en crée un nouveau qui te sert. Concret, structuré, et tourné vers l'avant.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -938,7 +1137,7 @@ footer a:hover{color:var(--teal);}
       Cinq séances. <em class="serif-italic">Une trajectoire.</em>
     </h2>
     <p class="reveal d3" style="margin-top:24px;color:var(--ink-soft);max-width:60ch;font-size:16.5px;" data-i18n="process.lead">
-      Chaque rencontre commence par un récap des deux dernières semaines, puis un check-in : où en êtes-vous face à votre objectif? Selon votre réponse, on avance. L'idée : que vous soyez assez près du but pour ne plus avoir besoin de moi.
+      Chaque rencontre commence par un récap des deux dernières semaines, puis un check-in : où en es-tu face à ton objectif? Selon ta réponse, on avance. L'idée : que tu sois assez près du but pour ne plus avoir besoin de moi.
     </p>
   </div>
 
@@ -948,7 +1147,7 @@ footer a:hover{color:var(--teal);}
         <span class="n">01</span>
         <div class="body">
           <h4 data-i18n="process.s1h">Cartographie</h4>
-          <p data-i18n="process.s1p">On définit l'objectif clairement. Ce que vous voulez, comment vous saurez que c'est atteint, ce qui se met en travers.</p>
+          <p data-i18n="process.s1p">On définit l'objectif clairement. Ce que tu veux, comment tu sauras que c'est atteint, ce qui se met en travers.</p>
         </div>
         <span class="when" data-i18n="process.s1when">Semaine 0</span>
       </li>
@@ -980,7 +1179,7 @@ footer a:hover{color:var(--teal);}
         <span class="n">05</span>
         <div class="body">
           <h4 data-i18n="process.s5h">Autonomie</h4>
-          <p data-i18n="process.s5p">Bilan. Ce qui a bougé, ce qui reste. L'objectif : que vous repartiez avec les outils — pas avec une dépendance au coaching.</p>
+          <p data-i18n="process.s5p">Bilan. Ce qui a bougé, ce qui reste. L'objectif : que tu repartes avec les outils — pas avec une dépendance au coaching.</p>
         </div>
         <span class="when" data-i18n="process.s5when">Semaine 8</span>
       </li>
@@ -1003,7 +1202,7 @@ footer a:hover{color:var(--teal);}
         </div>
         <div>
           <span class="label" data-i18n="format.locLabel">Lieu</span>
-          <span class="val" data-i18n="format.locVal">Bureau à Montréal · ou Google Meet (en ligne).</span>
+          <span class="val" data-i18n="format.locVal">Bureau à Longueuil · ou Google Meet (en ligne).</span>
         </div>
       </div>
       <div class="format-row">
@@ -1012,7 +1211,7 @@ footer a:hover{color:var(--teal);}
         </div>
         <div>
           <span class="label" data-i18n="format.langLabel">Langues</span>
-          <span class="val" data-i18n="format.langVal">Français · English. À votre convenance.</span>
+          <span class="val" data-i18n="format.langVal">Français · English. Au choix.</span>
         </div>
       </div>
       <div class="format-row">
@@ -1021,7 +1220,7 @@ footer a:hover{color:var(--teal);}
         </div>
         <div>
           <span class="label" data-i18n="format.diffLabel">Ma différence</span>
-          <span class="val" data-i18n="format.diffVal">Beaucoup de devoirs entre les séances. Je veux que votre réussite devienne inévitable.</span>
+          <span class="val" data-i18n="format.diffVal">Tu vas avoir des actions à poser entre chaque séance pour te rapprocher de ton objectif. Je veux que ta réussite devienne inévitable.</span>
         </div>
       </div>
       <p class="micro" data-i18n="format.micro">Tarifs et disponibilités sur demande. Réponse sous 48 h.</p>
@@ -1029,36 +1228,133 @@ footer a:hover{color:var(--teal);}
   </div>
 </section>
 
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="section-pad wrap">
+  <div class="testimonials-head">
+    <div>
+      <span class="eyebrow reveal" data-i18n="testi.eyebrow">04 — Témoignages</span>
+      <h2 class="reveal d2" style="margin-top:22px;" data-i18n="testi.h2" data-i18n-html>
+        Ils ont fait <em class="serif-italic">le travail.</em>
+      </h2>
+    </div>
+    <p class="lead reveal d3" data-i18n="testi.lead">
+      Trois clients, trois objectifs, une même trajectoire : cinq séances pour passer de l’impasse à l’autonomie. Voici ce qu’ils ont à dire — dans leurs mots.
+    </p>
+  </div>
+
+  <div class="testi-grid">
+    <article class="testi-card reveal">
+      <span class="mark" aria-hidden="true">“</span>
+      <div class="body" data-i18n="testi.t1" data-i18n-html>
+        <p>Kristof sait comment rendre les gens à l’aise et les mettre en confiance dès la première rencontre. Son écoute, son calme et son ouverture d’esprit font qu’on se confie à lui rapidement, en toute confiance.</p>
+        <p>On ressort de chaque séance avec plus de clarté et de précision face à notre objectif. <em>Après seulement 5 séances, j’ai eu l’impression d’accomplir ce qui m’aurait pris des années par moi-même.</em> C’est le plus beau cadeau que tu peux te faire cette année.</p>
+      </div>
+      <div class="who">
+        <span class="name">Sébastien, 27</span>
+        <span class="ctx" data-i18n="testi.t1ctx">Travailleur autonome plutôt solitaire qui voulait agrandir son cercle d’amis — et qui a réussi haut la main, en découvrant aussi une communauté à travers l’accompagnement.</span>
+        <span class="meta" data-i18n="testi.t1meta">5 séances · Coaching PNL</span>
+      </div>
+    </article>
+
+    <article class="testi-card reveal d2">
+      <span class="mark" aria-hidden="true">“</span>
+      <div class="body" data-i18n="testi.t2" data-i18n-html>
+        <p>J’avais l’impression d’être spectatrice de ma propre vie. Rien ne semblait à sa place. C’est là qu’on m’a référé à Kris.</p>
+        <p>Ce que j’apprécie le plus avec lui, c’est sa façon de me garder responsable de mes réflexions. <em>Il ne me donne pas LA réponse — il me guide pour que je réalise qu’elle est déjà dans mon propre questionnement.</em> Et ça, c’est un vrai levier.</p>
+      </div>
+      <div class="who">
+        <span class="name">Naomie</span>
+        <span class="ctx" data-i18n="testi.t2ctx">Jeune entrepreneure avec un excellent potentiel qui se posait beaucoup de questions — et qui avait simplement besoin de se diriger vers ce qu’elle voulait réellement.</span>
+        <span class="meta" data-i18n="testi.t2meta">Coaching en cours</span>
+      </div>
+    </article>
+
+    <article class="testi-card reveal d3">
+      <span class="mark" aria-hidden="true">“</span>
+      <div class="body" data-i18n="testi.t3" data-i18n-html>
+        <p>J’ai découvert Kristof grâce à un podcast sur la PNL et j’ai tout de suite su que ça serait un fit. Dès le premier appel, il a su me mettre en confiance.</p>
+        <p>Une de mes plus belles expériences d’apprentissage — et de confrontation aussi. <em>Kristof a su aller à des endroits que je cachais depuis toujours</em> et me faire réaliser énormément de choses, sans me dire quoi exactement. Il me laissait mijoter et m’enlignait jusqu’à ce que je trouve la réponse moi-même.</p>
+      </div>
+      <div class="who">
+        <span class="name">Steven</span>
+        <span class="ctx" data-i18n="testi.t3ctx">Travailleur sur la route et ancien dépendant. Un des clients les plus disciplinés que j’ai eus — il utilise son intensité comme carburant pour réussir.</span>
+        <span class="meta" data-i18n="testi.t3meta">5 séances · Coaching PNL</span>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ============ PHILOSOPHY ============ -->
 <section class="philosophy">
   <div class="philosophy-inner">
-    <div>
-      <span class="eyebrow reveal" style="--teal:var(--teal);" data-i18n="philo.eyebrow">04 — Une conviction</span>
-      <h2 class="reveal d2" style="margin-top:22px;" data-i18n="philo.h2" data-i18n-html>
-        Chacun a un domaine où il peut être <em>excellent.</em>
-      </h2>
+    <div class="philosophy-portrait reveal">
+      <div class="editorial-photo" style="height:100%;">
+        <img src="img/philosophy-couch.jpg" alt="Kristof Robert" loading="lazy"/>
+        <span class="caption" data-i18n="band.philo.cap">Kristof Robert · Coach PNL</span>
+      </div>
     </div>
     <div>
-      <p class="reveal" data-i18n="philo.p1">
-        Pour certains, ce sera les finances. Pour d'autres, la mise en forme. Pour d'autres encore, la communication, l'enseignement, la création.
+      <span class="eyebrow reveal" data-i18n="philo.eyebrow">05 — Ma conviction</span>
+      <h2 class="reveal d2" style="margin-top:22px;" data-i18n="philo.h2" data-i18n-html>
+        Ma mission avec toi : <em>que tu avances.</em>
+      </h2>
+      <p class="reveal" style="margin-top:28px;" data-i18n="philo.p1">
+        T'as tout pour être heureux mais il te manque quelque chose. Tu réussis dans ton travail, tu t'entraînes, tu lis, tu apprends. Et pourtant — quelque chose te garde debout la nuit.
       </p>
       <p class="reveal d2" data-i18n="philo.p2">
-        On a tous quelque chose dans lequel on peut être super, super bon — et si on aime ça, je pense qu'on devrait y mettre notre temps et notre énergie. Aller le plus loin possible là-dedans. Mon travail : vous aider à reconnaître le vôtre, et à faire le pas suivant.
+        Mon travail : t'aider à oublier le bruit (les réseaux, les attentes des autres) et à revenir à l'essentiel. Qui es-tu si je t'enlève ce que tu fais comme travail? L'atteinte de ton objectif va devenir un voyage — et c'est moi qui marche à côté.
       </p>
       <div class="signature reveal d3">
-        <svg width="44" height="44" viewBox="0 0 100 100" aria-hidden="true">
-          <g fill="none" stroke-width="14" stroke-linecap="round">
-            <path d="M 22 28 A 32 32 0 0 1 78 28" stroke="#3FCFC8"/>
-            <path d="M 78 28 A 32 32 0 0 1 78 72" stroke="#F5C24A"/>
-            <path d="M 78 72 A 32 32 0 0 1 22 72" stroke="#E84A8E"/>
-            <path d="M 22 72 A 32 32 0 0 1 22 28" stroke="#5B86E5"/>
-          </g>
-        </svg>
         <div>
           <div class="sig-name">Kristof Robert</div>
           <div class="sig-meta" data-i18n="philo.sigMeta">Coach PNL · CQPNL 2025</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section-pad wrap">
+  <div class="faq-head">
+    <span class="eyebrow reveal" data-i18n="faq.eyebrow">06 — Questions</span>
+    <h2 class="reveal d2" style="margin-top:22px;" data-i18n="faq.h2" data-i18n-html>
+      Les questions <em class="serif-italic">qui reviennent.</em>
+    </h2>
+    <p class="reveal d3" style="margin-top:22px; color:var(--ink-soft); font-size:16.5px; max-width:54ch;" data-i18n="faq.lead">
+      Trois choses que les gens me demandent souvent avant de commencer. Si la vôtre n’y est pas — écrivez-moi.
+    </p>
+  </div>
+
+  <div class="faq-list reveal d2">
+    <div class="faq-item open">
+      <button class="faq-q" type="button" aria-expanded="true">
+        <span data-i18n="faq.q1">Qu’est-ce que c’est, la PNL?</span>
+        <span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><div><p data-i18n="faq.a1">
+        La Programmation Neuro-Linguistique est une approche de coaching personnel qui met le focus vers les solutions, pour permettre au client d’atteindre ses objectifs — personnels ou professionnels. On y parvient en déprogrammant des patterns limitants, pour en créer de nouveaux qui te permettront d’avancer vers ton objectif.
+      </p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span data-i18n="faq.q2">Comment ça pourrait m’aider, concrètement?</span>
+        <span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><div><p data-i18n="faq.a2">
+        Si tu sais ce que tu veux mais que tu butes contre le même mur — une croyance, un dialogue intérieur, un schéma qui se rejoue — on travaille là où ça se loge. Cinq séances pour identifier le pattern, le déprogrammer, et bâtir le suivant. Mon rôle : que tu n’aies plus besoin de moi.
+      </p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span data-i18n="faq.q3">Est-ce qu’on a des devoirs entre les séances?</span>
+        <span class="plus" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a"><div><p data-i18n="faq.a3">
+        Oui — et c’est là que les changements deviennent durables. Je t’envoie tes devoirs par texto, on en discute à la séance suivante. Beaucoup de devoirs, c’est ma différence : je veux que ta réussite devienne inévitable.
+      </p></div></div>
     </div>
   </div>
 </section>
@@ -1083,42 +1379,60 @@ footer a:hover{color:var(--teal);}
 <!-- ============ CONTACT ============ -->
 <section id="contact" class="section-pad wrap">
   <div style="max-width:760px;">
-    <span class="eyebrow reveal" data-i18n="contact.eyebrow">05 — Réserver</span>
+    <span class="eyebrow reveal" data-i18n="contact.eyebrow">07 — Réserver</span>
     <h2 class="reveal d2" style="margin-top:22px;" data-i18n="contact.h2" data-i18n-html>
-      <em class="serif-italic">Commençons.</em>
+      <em class="serif-italic">Réservons</em> ton appel.
     </h2>
     <p class="reveal d3" style="margin-top:24px;color:var(--ink-soft);max-width:54ch;font-size:16.5px;" data-i18n="contact.lead">
-      Dites-moi en quelques mots ce sur quoi vous travaillez. Je reviens vers vous sous 48 h avec mes disponibilités et le format qui convient.
+      Réserve directement un appel exploratoire en ligne — ou écris-moi ci-dessous. Tarifs et disponibilités sur demande, réponse sous 48 h.
     </p>
+    <div class="reveal d3" style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="https://calendly.com/kristofholistik" target="_blank" rel="noopener" class="btn btn-primary">
+        <span data-i18n="contact.calendly">Réserver sur Calendly</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
   </div>
 
   <div class="contact-grid">
     <div class="contact-info reveal">
       <h3 data-i18n="contact.directH">Direct</h3>
       <div class="detail">
+        <span class="label" data-i18n="contact.bookingLabel">Réservation en ligne</span>
+        <a class="value" href="https://calendly.com/kristofholistik" target="_blank" rel="noopener">calendly.com/kristofholistik ↗</a>
+      </div>
+      <div class="detail">
         <span class="label" data-i18n="contact.emailLabel">Courriel</span>
-        <a class="value" href="mailto:[EMAIL]">[EMAIL]</a>
+        <a class="value" href="mailto:kristof@holistikperformance.com">kristof@holistikperformance.com</a>
       </div>
       <div class="detail">
         <span class="label" data-i18n="contact.phoneLabel">Téléphone</span>
-        <a class="value" href="tel:[PHONE]">[PHONE]</a>
+        <a class="value" href="tel:+15149626760">514 962-6760</a>
       </div>
       <div class="detail">
         <span class="label" data-i18n="contact.locLabel">Lieu</span>
-        <span class="value">Montréal, QC · <span data-i18n="contact.locOnline">en ligne</span></span>
+        <span class="value">Longueuil, QC · <span data-i18n="contact.locOnline">en ligne</span></span>
+      </div>
+      <div class="detail">
+        <span class="label" data-i18n="contact.hoursLabel">Heures</span>
+        <span class="value" data-i18n="contact.hoursVal" data-i18n-html>Lun, mar, jeu, ven : 11 h — 20 h<br/>Mer : 9 h — 20 h · Sam : sur demande</span>
       </div>
       <div class="detail">
         <span class="label">Instagram</span>
-        <a class="value" href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">@kristofholistik</a>
+        <a class="value" href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">@kristofholistik ↗</a>
+      </div>
+      <div class="detail">
+        <span class="label">LinkedIn</span>
+        <a class="value" href="https://www.linkedin.com/in/kristofrobert" target="_blank" rel="noopener">Kristof Robert ↗</a>
       </div>
     </div>
 
     <form id="contactForm" novalidate class="reveal d2">
       <div class="field-row">
         <div class="field" data-field>
-          <label for="f-name" data-i18n="form.name">Votre nom</label>
+          <label for="f-name" data-i18n="form.name">Ton nom</label>
           <input id="f-name" name="name" type="text" required data-i18n-ph="form.namePh" placeholder="Nom complet"/>
-          <span class="err" data-i18n="form.nameErr">Indiquez votre nom svp.</span>
+          <span class="err" data-i18n="form.nameErr">Indique ton nom svp.</span>
         </div>
         <div class="field" data-field>
           <label for="f-email" data-i18n="form.email">Courriel</label>
@@ -1130,15 +1444,15 @@ footer a:hover{color:var(--teal);}
         <label for="f-format" data-i18n="form.format">Format préféré</label>
         <select id="f-format" name="format" required>
           <option value="" data-i18n="form.fmt0">Choisir</option>
-          <option data-i18n="form.fmt1">En présence — Montréal</option>
+          <option data-i18n="form.fmt1">En présence — Longueuil</option>
           <option data-i18n="form.fmt2">En ligne — Google Meet</option>
           <option data-i18n="form.fmt3">À discuter</option>
         </select>
         <span class="err" data-i18n="form.fmtErr">Choisissez un format.</span>
       </div>
       <div class="field" data-field>
-        <label for="f-msg" data-i18n="form.msg">Sur quoi voulez-vous travailler?</label>
-        <textarea id="f-msg" name="message" required data-i18n-ph="form.msgPh" placeholder="Quelques phrases sur ce qui vous amène..."></textarea>
+        <label for="f-msg" data-i18n="form.msg">Sur quoi veux-tu travailler?</label>
+        <textarea id="f-msg" name="message" required data-i18n-ph="form.msgPh" placeholder="Quelques phrases sur ce qui t'amène..."></textarea>
         <span class="err" data-i18n="form.msgErr">Un court message m'aide à me préparer.</span>
       </div>
       <div class="submit-row">
@@ -1146,7 +1460,7 @@ footer a:hover{color:var(--teal);}
         <span class="form-note" data-i18n="form.note">Réponse sous 48 h · FR / EN</span>
       </div>
       <div class="form-success" id="formSuccess" data-i18n="form.success">
-        Merci — votre message est bien reçu. Je reviens vers vous sous 48 h.
+        Merci — ton message est bien reçu. Je reviens vers toi sous 48 h.
       </div>
     </form>
   </div>
@@ -1157,20 +1471,13 @@ footer a:hover{color:var(--teal);}
   <div class="footer-inner">
     <div>
       <a href="#top" class="brand">
-        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
-          <g fill="none" stroke-width="14" stroke-linecap="round">
-            <path d="M 22 28 A 32 32 0 0 1 78 28" stroke="#3FCFC8"/>
-            <path d="M 78 28 A 32 32 0 0 1 78 72" stroke="#F5C24A"/>
-            <path d="M 78 72 A 32 32 0 0 1 22 72" stroke="#E84A8E"/>
-            <path d="M 22 72 A 32 32 0 0 1 22 28" stroke="#5B86E5"/>
-          </g>
-        </svg>
+        <img class="logo-mark" src="img/logo-mark.png" alt="" aria-hidden="true"/>
         <span class="wordmark">
           <span>Holistik Performance</span>
-          <span class="sub" data-i18n="brand.tagline">Préparation physique et mentale</span>
+          <span class="sub" data-i18n="brand.tagline">Vivre en ses termes</span>
         </span>
       </a>
-      <p data-i18n="footer.blurb">Coaching certifié en Programmation Neuro-Linguistique avec Kristof Robert. Cinq séances pour passer à la version de vous-même que vous voulez devenir. Montréal · en ligne.</p>
+      <p data-i18n="footer.blurb">Coaching certifié en Programmation Neuro-Linguistique avec Kristof Robert. Cinq séances pour vivre ta vie en tes termes — bâtir une vie qui te ressemble. Longueuil · en ligne.</p>
     </div>
     <div>
       <h4 data-i18n="footer.navigate">Naviguer</h4>
@@ -1182,17 +1489,27 @@ footer a:hover{color:var(--teal);}
     <div>
       <h4 data-i18n="footer.elsewhere">Ailleurs</h4>
       <a href="https://instagram.com/kristofholistik" target="_blank" rel="noopener">Instagram ↗</a>
-      <a href="mailto:[EMAIL]">[EMAIL]</a>
-      <a href="tel:[PHONE]">[PHONE]</a>
+      <a href="https://www.linkedin.com/in/kristofrobert" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:kristof@holistikperformance.com">kristof@holistikperformance.com</a>
+      <a href="tel:+15149626760">514 962-6760</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span data-i18n="footer.copy">© 2026 Holistik Performance · Tous droits réservés</span>
-    <span data-i18n="footer.made">Montréal, QC</span>
+    <span data-i18n="footer.made">Longueuil, QC</span>
   </div>
 </footer>
 
 <script>
+/* ─── FAQ toggle ─── */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const item = btn.closest('.faq-item');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+
 /* ─── Scroll reveal ─── */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
@@ -1243,40 +1560,45 @@ form.querySelectorAll('[data-field] input, [data-field] select, [data-field] tex
    data-i18n-ph    → set as placeholder attr
    ──────────────────────────────────────────────── */
 const I18N = {
-  "brand.tagline":   {fr:"Préparation physique et mentale",  en:"Physical and mental preparation"},
+  "brand.tagline":   {fr:"Vivre en ses termes",  en:"Life on your terms"},
 
   "nav.about":       {fr:"À propos",                          en:"About"},
   "nav.nlp":         {fr:"La PNL",                            en:"NLP"},
   "nav.process":     {fr:"Le parcours",                       en:"The process"},
+  "nav.testi":       {fr:"Témoignages",                       en:"Stories"},
+  "nav.faq":         {fr:"FAQ",                               en:"FAQ"},
   "nav.contact":     {fr:"Contact",                           en:"Contact"},
   "nav.cta":         {fr:"Réserver",                          en:"Book"},
 
-  "hero.eyebrow":    {fr:"Coaching PNL · Montréal",           en:"NLP Coaching · Montréal"},
-  "hero.h1":         {fr:"Vous aider à devenir<br/><span class='accent'>la version</span><br/><span class='breath'>que vous voulez devenir.</span>",
-                      en:"Helping you become<br/><span class='accent'>the version</span><br/><span class='breath'>you want to become.</span>"},
-  "hero.lead":       {fr:"Kristof Robert · coach certifié en Programmation Neuro-Linguistique. Un accompagnement structuré, orienté solutions, pour défaire les schémas qui vous limitent et construire ceux qui vous portent.",
-                      en:"Kristof Robert · certified Neuro-Linguistic Programming coach. A structured, solution-oriented practice to undo the patterns that limit you and build the ones that carry you forward."},
-  "hero.cta1":       {fr:"Réserver une séance",               en:"Book a session"},
+  "hero.eyebrow":    {fr:"Coaching PNL · Longueuil, QC",      en:"NLP Coaching · Longueuil, QC"},
+  "hero.h1":         {fr:"Vivre <span class='breath'>ta vie</span><br/><span class='accent'>en tes</span> termes.",
+                      en:"Live your life <span class='breath'>on your<br/></span><span class='accent'>own</span> terms."},
+  "hero.lead":       {fr:"Kristof Robert · coach certifié en Programmation Neuro-Linguistique. Un accompagnement structuré, orienté solutions, pour bâtir une vie qui te ressemble — et avancer vers ce que tu veux vraiment.",
+                      en:"Kristof Robert · certified Neuro-Linguistic Programming coach. A structured, solution-oriented practice to build a life that fits you — and move toward what you actually want."},
+  "hero.cta1":       {fr:"Réserver un appel exploratoire",    en:"Book a discovery call"},
   "hero.cta2":       {fr:"C'est quoi la PNL?",                en:"What is NLP?"},
   "hero.meta1":      {fr:"Séances structurées,<br/>aux deux semaines", en:"Structured sessions,<br/>every two weeks"},
   "hero.meta2":      {fr:"de formation au CQPNL,<br/>2022 — 2025",     en:"of training at CQPNL,<br/>2022 — 2025"},
-  "hero.meta3":      {fr:"en présence à Montréal<br/>ou en ligne (Google&nbsp;Meet)",
-                      en:"in person in Montréal<br/>or online (Google&nbsp;Meet)"},
+  "hero.meta3":      {fr:"en présence à Longueuil<br/>ou en ligne (Google&nbsp;Meet)",
+                      en:"in person in Longueuil<br/>or online (Google&nbsp;Meet)"},
   "hero.badge":      {fr:"Réservations ouvertes · Printemps 2026",     en:"Now booking · Spring 2026"},
 
-  "ribbon.quote":    {fr:"« J'aide les gens à passer de la version qu'ils sont en ce moment <em>à la version d'eux-mêmes qu'ils ont envie de devenir.</em> »",
-                      en:"\"I help people move from the version they are right now <em>to the version of themselves they want to become.</em>\""},
+  "ribbon.quote":    {fr:"« Ralentir <em>pour aller plus vite.</em> »",
+                      en:"\"Slow down <em>to move faster.</em>\""},
   "ribbon.cite":     {fr:"Kristof Robert · Coach PNL",        en:"Kristof Robert · NLP Coach"},
 
   "about.eyebrow":   {fr:"01 — À propos",                     en:"01 — About"},
   "about.h2":        {fr:"Aider, <em class='serif-italic'>parce que c'est là que je suis bon.</em>",
                       en:"Helping people <em class='serif-italic'>is where I'm good.</em>"},
-  "about.lead":      {fr:"À 23 ans, je me suis fait coacher en PNL. J'ai vu les changements que ça apportait dans ma vie. <em>Un client massothérapie</em> me défiait sur tout ce que je disais — il avait fait sa formation aussi. Quelque chose s'est aligné.",
-                      en:"At 23, I started being coached in NLP. I saw the changes it brought to my life. <em>A massage therapy client</em> kept challenging me on everything I said — he'd done his training too. Something clicked."},
+  "about.lead":      {fr:"À 23 ans, je me suis fait coacher en PNL et j'ai vu les changements positifs que ça apportait dans ma vie. Puis au même moment, j'avais <em>un client en massothérapie</em> qui avait également fait son cours en PNL — et il me <em>challengeait</em> sur tout ce que je disais. Alors je me suis dit qu'essayer la PNL serait peut-être une bonne idée.",
+                      en:"At 23, I got coached in NLP and saw the positive changes it brought to my life. Around that same time, I had <em>a massage therapy client</em> who'd taken his NLP training too — and he kept <em>challenging</em> me on everything I said. So I figured: maybe trying NLP myself would be a good idea."},
   "about.p1":        {fr:"La massothérapie, je savais que ce n'était pas pour toute ma vie. La PNL, par contre, c'est quelque chose qui se fait avec les gens — j'aide les gens, et je pense que je peux être bon là-dedans. Je me suis dit : pourquoi pas. J'ai essayé le cours de base. C'est ce qui m'a fait accrocher le plus.",
                       en:"I knew massage therapy wasn't going to be the work of a lifetime. NLP, on the other hand — it's something done with people, and I think I can be good at it. So I tried the basic course. That's what hooked me."},
   "about.p2":        {fr:"Trois ans de formation au Centre québécois de PNL plus tard, je travaille avec des gens qui savent ce qu'ils veulent mais qui butent toujours contre le même mur intérieur. Mon rôle : leur permettre de passer à travers, et de ne plus avoir besoin de moi.",
                       en:"Three years of training at the Quebec NLP Center later, I work with people who know what they want but keep hitting the same internal wall. My role: help them get through it — and not need me anymore."},
+  "about.word1":     {fr:"Passionné",                         en:"Passionate"},
+  "about.word2":     {fr:"Investi",                           en:"Invested"},
+  "about.word3":     {fr:"Drôle",                             en:"Funny"},
 
   "journey.s1age":   {fr:"17 ans",                            en:"Age 17"},
   "journey.s1h":     {fr:"Bodybuilding",                      en:"Bodybuilding"},
@@ -1292,38 +1614,38 @@ const I18N = {
                       en:"Became a personal trainer. Same intuition: not quite it yet. But working with people — yes, that part was sharpening."},
   "journey.s4age":   {fr:"25 ans →",                          en:"Age 25 →"},
   "journey.s4h":     {fr:"PNL",                               en:"NLP"},
-  "journey.s4p":     {fr:"Cours de base au CQPNL. J'ai adoré. C'était <em style='color:var(--teal);font-style:italic;'>vraiment ça</em>. Trois ans de formation à temps partiel, jusqu'en mai 2025.",
-                      en:"Basic course at CQPNL. I loved it. It was <em style='color:var(--teal);font-style:italic;'>really it</em>. Three years of part-time training, through May 2025."},
+  "journey.s4p":     {fr:"Cours de base au CQPNL. J'ai adoré. C'était <em style='color:var(--clay);font-style:italic;'>vraiment ça</em>. Trois ans de formation à temps partiel, jusqu'en mai 2025.",
+                      en:"Basic course at CQPNL. I loved it. It was <em style='color:var(--clay);font-style:italic;'>really it</em>. Three years of part-time training, through May 2025."},
 
   "nlp.eyebrow":     {fr:"02 — La méthode",                   en:"02 — The method"},
   "nlp.h2":          {fr:"C'est quoi <em class='serif-italic'>la PNL?</em>",
                       en:"What is <em class='serif-italic'>NLP?</em>"},
   "nlp.lead":        {fr:"Programmation Neuro-Linguistique. Trois mots qui sonnent techniques, une pratique qui ne l'est pas. Voici la version simple — dans mes mots.",
                       en:"Neuro-Linguistic Programming. Three words that sound technical — a practice that isn't. The plain version, in my own words."},
-  "nlp.cardLabel":   {fr:"Définition · en mes mots",          en:"Definition · in my words"},
+  "nlp.cardLabel":   {fr:"Définition",                       en:"Definition"},
   "nlp.cardH":       {fr:"Une approche de coaching personnel <em>orientée vers les solutions</em>.",
                       en:"A personal coaching approach <em>oriented toward solutions</em>."},
-  "nlp.cardP1":      {fr:"La PNL <span class='abbr'>FR</span> ou NLP <span class='abbr'>EN</span> permet aux gens d'atteindre leurs objectifs — personnels ou professionnels — en défaisant les schémas qui les limitent, pour en construire de nouveaux qui les soutiennent.",
-                      en:"NLP <span class='abbr'>EN</span> or PNL <span class='abbr'>FR</span> helps people reach their goals — personal or professional — by undoing limiting patterns and building new ones that support them."},
-  "nlp.cardP2":      {fr:"Ce n'est pas une thérapie. On ne creuse pas le passé pour le creuser. On regarde ce qui se rejoue, on identifie le pattern, et on travaille — concrètement, vers l'avant — sur le résultat que vous voulez vivre.",
-                      en:"It's not therapy. We don't dig into the past for its own sake. We look at what keeps replaying, identify the pattern, and work — concretely, forward — on the outcome you want to live."},
+  "nlp.cardP1":      {fr:"La PNL <span class='abbr'>FR</span> ou NLP <span class='abbr'>EN</span> permet au client d'atteindre ses objectifs — personnels ou professionnels — en mettant le focus sur les solutions.",
+                      en:"NLP <span class='abbr'>EN</span> or PNL <span class='abbr'>FR</span> helps the client reach their goals — personal or professional — by keeping the focus on solutions."},
+  "nlp.cardP2":      {fr:"On y parvient en déprogrammant des patterns limitants pour en créer de nouveaux qui te permettront d'avancer vers ton objectif. Ce n'est pas une thérapie — c'est concret, structuré, et tourné vers l'avant.",
+                      en:"We get there by deprogramming limiting patterns and building new ones that move you toward your goal. It's not therapy — it's concrete, structured, and forward-looking."},
   "nlp.fact1Label":  {fr:"Formation",                         en:"Training"},
   "nlp.fact1Val":    {fr:"<strong>CQPNL Montréal</strong> — Centre québécois de PNL. Mars 2022 → mai 2025, à temps partiel.",
                       en:"<strong>CQPNL Montréal</strong> — Quebec NLP Center. March 2022 → May 2025, part-time."},
   "nlp.fact2Label":  {fr:"Programme",                         en:"Program"},
-  "nlp.fact2Val":    {fr:"<strong>Cinq séances d'une heure</strong>, espacées de deux semaines. Format pensé pour vous rendre autonome.",
+  "nlp.fact2Val":    {fr:"<strong>Cinq séances d'une heure</strong>, espacées de deux semaines. Format pensé pour te rendre autonome.",
                       en:"<strong>Five one-hour sessions</strong>, two weeks apart. Designed to leave you autonomous."},
   "nlp.fact3Label":  {fr:"Formats",                           en:"Formats"},
-  "nlp.fact3Val":    {fr:"<strong>En présence</strong> au bureau de Montréal, ou <strong>en ligne</strong> par Google Meet.",
-                      en:"<strong>In person</strong> at the Montréal office, or <strong>online</strong> via Google Meet."},
+  "nlp.fact3Val":    {fr:"<strong>En présence</strong> au bureau de Longueuil, ou <strong>en ligne</strong> par Google Meet.",
+                      en:"<strong>In person</strong> at the Longueuil office, or <strong>online</strong> via Google Meet."},
 
   "process.eyebrow": {fr:"03 — Le parcours",                  en:"03 — The process"},
   "process.h2":      {fr:"Cinq séances. <em class='serif-italic'>Une trajectoire.</em>",
                       en:"Five sessions. <em class='serif-italic'>One trajectory.</em>"},
-  "process.lead":    {fr:"Chaque rencontre commence par un récap des deux dernières semaines, puis un check-in : où en êtes-vous face à votre objectif? Selon votre réponse, on avance. L'idée : que vous soyez assez près du but pour ne plus avoir besoin de moi.",
+  "process.lead":    {fr:"Chaque rencontre commence par un récap des deux dernières semaines, puis un check-in : où en es-tu face à ton objectif? Selon ta réponse, on avance. L'idée : que tu sois assez près du but pour ne plus avoir besoin de moi.",
                       en:"Each session starts with a recap of the last two weeks, then a check-in: where are you with your goal? Based on your answer, we move forward. The idea: get you close enough that you no longer need me."},
   "process.s1h":     {fr:"Cartographie",                      en:"Mapping"},
-  "process.s1p":     {fr:"On définit l'objectif clairement. Ce que vous voulez, comment vous saurez que c'est atteint, ce qui se met en travers.",
+  "process.s1p":     {fr:"On définit l'objectif clairement. Ce que tu veux, comment tu sauras que c'est atteint, ce qui se met en travers.",
                       en:"We define the goal clearly. What you want, how you'll know you've reached it, and what's in the way."},
   "process.s1when":  {fr:"Semaine 0",                         en:"Week 0"},
   "process.s2h":     {fr:"Identifier le schéma",              en:"Identify the pattern"},
@@ -1339,29 +1661,67 @@ const I18N = {
                       en:"We consolidate the new patterns in real life. Homework between sessions — that's where the change becomes durable."},
   "process.s4when":  {fr:"Semaine 6",                         en:"Week 6"},
   "process.s5h":     {fr:"Autonomie",                         en:"Autonomy"},
-  "process.s5p":     {fr:"Bilan. Ce qui a bougé, ce qui reste. L'objectif : que vous repartiez avec les outils — pas avec une dépendance au coaching.",
+  "process.s5p":     {fr:"Bilan. Ce qui a bougé, ce qui reste. L'objectif : que tu repartes avec les outils — pas avec une dépendance au coaching.",
                       en:"Wrap-up. What's shifted, what remains. The goal: you leave with the tools — not a dependency on coaching."},
   "process.s5when":  {fr:"Semaine 8",                         en:"Week 8"},
+
+  "testi.eyebrow":   {fr:"04 — Témoignages",                  en:"04 — Stories"},
+  "testi.h2":        {fr:"Ils ont fait <em class='serif-italic'>le travail.</em>",
+                      en:"They did <em class='serif-italic'>the work.</em>"},
+  "testi.lead":      {fr:"Trois clients, trois objectifs, une même trajectoire : cinq séances pour passer de l'impasse à l'autonomie. Voici ce qu'ils ont à dire — dans leurs mots.",
+                      en:"Three clients, three goals, one shared trajectory: five sessions to move from stuck to autonomous. Here's what they have to say — in their own words."},
+  "testi.t1":        {fr:"<p>Kristof sait comment rendre les gens à l'aise et les mettre en confiance dès la première rencontre. Son écoute, son calme et son ouverture d'esprit font qu'on se confie à lui rapidement, en toute confiance.</p><p>On ressort de chaque séance avec plus de clarté et de précision face à notre objectif. <em>Après seulement 5 séances, j'ai eu l'impression d'accomplir ce qui m'aurait pris des années par moi-même.</em> C'est le plus beau cadeau que tu peux te faire cette année.</p>",
+                      en:"<p>Kristof knows how to put people at ease from the very first meeting. His listening, his calm, and his openness make it easy to confide in him with full trust.</p><p>You leave each session with more clarity about your goal. <em>After only 5 sessions, I felt I'd accomplished what would've taken me years on my own.</em> It's the best gift you can give yourself this year.</p>"},
+  "testi.t1ctx":     {fr:"Travailleur autonome plutôt solitaire qui voulait agrandir son cercle d'amis — et qui a réussi haut la main, en découvrant aussi une communauté à travers l'accompagnement.",
+                      en:"Self-employed and on the solitary side, he wanted to grow his circle of friends — and pulled it off, also finding a community through the work."},
+  "testi.t1meta":    {fr:"5 séances · Coaching PNL",          en:"5 sessions · NLP coaching"},
+  "testi.t2":        {fr:"<p>J'avais l'impression d'être spectatrice de ma propre vie. Rien ne semblait à sa place. C'est là qu'on m'a référé à Kris.</p><p>Ce que j'apprécie le plus avec lui, c'est sa façon de me garder responsable de mes réflexions. <em>Il ne me donne pas LA réponse — il me guide pour que je réalise qu'elle est déjà dans mon propre questionnement.</em> Et ça, c'est un vrai levier.</p>",
+                      en:"<p>I felt like a spectator in my own life. Nothing seemed to fit. That's when someone referred me to Kris.</p><p>What I appreciate most about him is the way he keeps me accountable for my own reflections. <em>He doesn't give me THE answer — he guides me to realize it's already in my own questioning.</em> That's a real lever.</p>"},
+  "testi.t2ctx":     {fr:"Jeune entrepreneure avec un excellent potentiel qui se posait beaucoup de questions — et qui avait simplement besoin de se diriger vers ce qu'elle voulait réellement.",
+                      en:"A young entrepreneur with great potential who was asking herself a lot of questions — and just needed to head toward what she actually wanted."},
+  "testi.t2meta":    {fr:"Coaching en cours",                 en:"Ongoing coaching"},
+  "testi.t3":        {fr:"<p>J'ai découvert Kristof grâce à un podcast sur la PNL et j'ai tout de suite su que ça serait un fit. Dès le premier appel, il a su me mettre en confiance.</p><p>Une de mes plus belles expériences d'apprentissage — et de confrontation aussi. <em>Kristof a su aller à des endroits que je cachais depuis toujours</em> et me faire réaliser énormément de choses, sans me dire quoi exactement. Il me laissait mijoter et m'enlignait jusqu'à ce que je trouve la réponse moi-même.</p>",
+                      en:"<p>I found Kristof through a podcast about NLP and I knew right away it'd be a fit. From the first call, he put me at ease.</p><p>One of the best learning — and confronting — experiences I've had. <em>Kristof went to places I'd been hiding forever</em> and helped me realize a huge amount, without telling me what exactly. He'd let me sit with it and steer me until I found the answer myself.</p>"},
+  "testi.t3ctx":     {fr:"Travailleur sur la route et ancien dépendant. Un des clients les plus disciplinés que j'ai eus — il utilise son intensité comme carburant pour réussir.",
+                      en:"On-the-road worker and former addict. One of the most disciplined clients I've had — he uses his intensity as fuel to succeed."},
+  "testi.t3meta":    {fr:"5 séances · Coaching PNL",          en:"5 sessions · NLP coaching"},
+
+  "faq.eyebrow":     {fr:"06 — Questions",                    en:"06 — Questions"},
+  "faq.h2":          {fr:"Les questions <em class='serif-italic'>qui reviennent.</em>",
+                      en:"The questions <em class='serif-italic'>that come up.</em>"},
+  "faq.lead":        {fr:"Trois choses que les gens me demandent souvent avant de commencer. Si la vôtre n'y est pas — écrivez-moi.",
+                      en:"Three things people often ask before starting. If yours isn't here — drop me a line."},
+  "faq.q1":          {fr:"Qu'est-ce que c'est, la PNL?",      en:"What is NLP, exactly?"},
+  "faq.a1":          {fr:"La Programmation Neuro-Linguistique est une approche de coaching personnel qui met le focus vers les solutions, pour permettre au client d'atteindre ses objectifs — personnels ou professionnels. On y parvient en déprogrammant des patterns limitants, pour en créer de nouveaux qui te permettront d'avancer vers ton objectif.",
+                      en:"Neuro-Linguistic Programming is a personal coaching approach that keeps the focus on solutions, so the client can reach their goals — personal or professional. We do that by deprogramming limiting patterns and building new ones that move you toward your goal."},
+  "faq.q2":          {fr:"Comment ça pourrait m'aider, concrètement?",
+                      en:"How could this actually help me?"},
+  "faq.a2":          {fr:"Si tu sais ce que tu veux mais que tu butes contre le même mur — une croyance, un dialogue intérieur, un schéma qui se rejoue — on travaille là où ça se loge. Cinq séances pour identifier le pattern, le déprogrammer, et bâtir le suivant. Mon rôle : que tu n'aies plus besoin de moi.",
+                      en:"If you know what you want but keep hitting the same wall — a belief, an inner dialogue, a pattern that replays — we work where it lives. Five sessions to identify the pattern, deprogram it, and build the next one. My role: that you no longer need me."},
+  "faq.q3":          {fr:"Est-ce qu'on a des devoirs entre les séances?",
+                      en:"Do we get homework between sessions?"},
+  "faq.a3":          {fr:"Oui — et c'est là que les changements deviennent durables. Je t'envoie tes devoirs par texto, on en discute à la séance suivante. Beaucoup de devoirs, c'est ma différence : je veux que ta réussite devienne inévitable.",
+                      en:"Yes — and that's where the change becomes durable. I send your homework by text, and we debrief at the next session. Lots of homework is my edge: I want your success to become inevitable."},
 
   "format.h":        {fr:"Le format en bref",                 en:"The format, in brief"},
   "format.durLabel": {fr:"Durée",                             en:"Duration"},
   "format.durVal":   {fr:"5 séances de 60 minutes, aux 2 semaines.", en:"5 × 60-minute sessions, every 2 weeks."},
   "format.locLabel": {fr:"Lieu",                              en:"Location"},
-  "format.locVal":   {fr:"Bureau à Montréal · ou Google Meet (en ligne).", en:"Montréal office · or Google Meet (online)."},
+  "format.locVal":   {fr:"Bureau à Longueuil · ou Google Meet (en ligne).", en:"Longueuil office · or Google Meet (online)."},
   "format.langLabel":{fr:"Langues",                           en:"Languages"},
-  "format.langVal":  {fr:"Français · English. À votre convenance.", en:"Français · English. Whichever suits you."},
+  "format.langVal":  {fr:"Français · English. Au choix.", en:"Français · English. Whichever suits you."},
   "format.diffLabel":{fr:"Ma différence",                     en:"What sets me apart"},
-  "format.diffVal":  {fr:"Beaucoup de devoirs entre les séances. Je veux que votre réussite devienne inévitable.",
-                      en:"A lot of homework between sessions. I want your success to become inevitable."},
+  "format.diffVal":  {fr:"Tu vas avoir des actions à poser entre chaque séance pour te rapprocher de ton objectif. Je veux que ta réussite devienne inévitable.",
+                      en:"You'll have actions to take between each session to move closer to your goal. I want your success to become inevitable."},
   "format.micro":    {fr:"Tarifs et disponibilités sur demande. Réponse sous 48 h.", en:"Rates and availability on request. Reply within 48 h."},
 
-  "philo.eyebrow":   {fr:"04 — Une conviction",               en:"04 — A conviction"},
-  "philo.h2":        {fr:"Chacun a un domaine où il peut être <em>excellent.</em>",
-                      en:"Everyone has a domain where they can be <em>excellent.</em>"},
-  "philo.p1":        {fr:"Pour certains, ce sera les finances. Pour d'autres, la mise en forme. Pour d'autres encore, la communication, l'enseignement, la création.",
-                      en:"For some, it'll be finance. For others, fitness. For others still, communication, teaching, creating."},
-  "philo.p2":        {fr:"On a tous quelque chose dans lequel on peut être super, super bon — et si on aime ça, je pense qu'on devrait y mettre notre temps et notre énergie. Aller le plus loin possible là-dedans. Mon travail : vous aider à reconnaître le vôtre, et à faire le pas suivant.",
-                      en:"We all have something we can be really, really good at — and if we love it, that's where our time and energy should go. As far as we can take it. My work: help you recognize yours, and take the next step."},
+  "philo.eyebrow":   {fr:"05 — Ma conviction",                 en:"05 — My conviction"},
+  "philo.h2":        {fr:"Ma mission avec toi : <em>que tu avances.</em>",
+                      en:"My mission with you: <em>that you move forward.</em>"},
+  "philo.p1":        {fr:"T'as tout pour être heureux mais il te manque quelque chose. Tu réussis dans ton travail, tu t'entraînes, tu lis, tu apprends. Et pourtant — quelque chose te garde debout la nuit.",
+                      en:"You've got everything to be happy, but something's missing. You succeed at work, you train, you read, you learn. And yet — something keeps you up at night."},
+  "philo.p2":        {fr:"Mon travail : t'aider à oublier le bruit (les réseaux, les attentes des autres) et à revenir à l'essentiel. Qui es-tu si je t'enlève ce que tu fais comme travail? L'atteinte de ton objectif va devenir un voyage — et c'est moi qui marche à côté.",
+                      en:"My work: help you tune out the noise (social media, other people's expectations) and come back to what matters. Who are you if I take away what you do for work? Reaching your goal becomes a journey — and I walk it with you."},
   "philo.sigMeta":   {fr:"Coach PNL · CQPNL 2025",            en:"NLP Coach · CQPNL 2025"},
 
   "insta.h":         {fr:"La pratique au quotidien, <em>en public.</em>", en:"Daily practice, <em>in public.</em>"},
@@ -1369,42 +1729,61 @@ const I18N = {
                       en:"Reflections, reframes, short exercises. Instagram is where the work between sessions lives."},
   "insta.cta":       {fr:"Suivre sur Instagram",              en:"Follow on Instagram"},
 
-  "contact.eyebrow": {fr:"05 — Réserver",                     en:"05 — Book"},
-  "contact.h2":      {fr:"<em class='serif-italic'>Commençons.</em>", en:"<em class='serif-italic'>Let's begin.</em>"},
-  "contact.lead":    {fr:"Dites-moi en quelques mots ce sur quoi vous travaillez. Je reviens vers vous sous 48 h avec mes disponibilités et le format qui convient.",
-                      en:"Tell me in a few words what you're working on. I'll get back to you within 48 hours with availability and the right format."},
+  "contact.eyebrow": {fr:"07 — Réserver",                     en:"07 — Book"},
+  "contact.h2":      {fr:"<em class='serif-italic'>Réservons</em> ton appel.",
+                      en:"<em class='serif-italic'>Let's book</em> your call."},
+  "contact.lead":    {fr:"Réserve directement un appel exploratoire en ligne — ou écris-moi ci-dessous. Tarifs et disponibilités sur demande, réponse sous 48 h.",
+                      en:"Book a discovery call online directly — or drop me a note below. Rates and availability on request, reply within 48 h."},
+  "contact.calendly":{fr:"Réserver sur Calendly",            en:"Book on Calendly"},
   "contact.directH": {fr:"Direct",                            en:"Direct"},
+  "contact.bookingLabel":{fr:"Réservation en ligne",         en:"Online booking"},
   "contact.emailLabel":{fr:"Courriel",                        en:"Email"},
   "contact.phoneLabel":{fr:"Téléphone",                       en:"Phone"},
   "contact.locLabel": {fr:"Lieu",                             en:"Location"},
   "contact.locOnline":{fr:"en ligne",                         en:"online"},
+  "contact.hoursLabel":{fr:"Heures",                          en:"Hours"},
+  "contact.hoursVal":  {fr:"Lun, mar, jeu, ven : 11 h — 20 h<br/>Mer : 9 h — 20 h · Sam : sur demande",
+                       en:"Mon, Tue, Thu, Fri: 11am — 8pm<br/>Wed: 9am — 8pm · Sat: by request"},
 
-  "form.name":       {fr:"Votre nom",                         en:"Your name"},
+  "form.name":       {fr:"Ton nom",                         en:"Your name"},
   "form.namePh":     {fr:"Nom complet",                       en:"Full name"},
-  "form.nameErr":    {fr:"Indiquez votre nom svp.",           en:"Please share your name."},
+  "form.nameErr":    {fr:"Indique ton nom svp.",           en:"Please share your name."},
   "form.email":      {fr:"Courriel",                          en:"Email"},
   "form.emailPh":    {fr:"vous@courriel.com",                 en:"you@email.com"},
   "form.emailErr":   {fr:"Un courriel valide svp.",           en:"A valid email, please."},
   "form.format":     {fr:"Format préféré",                    en:"Preferred format"},
   "form.fmt0":       {fr:"Choisir",                           en:"Choose"},
-  "form.fmt1":       {fr:"En présence — Montréal",            en:"In person — Montréal"},
+  "form.fmt1":       {fr:"En présence — Longueuil",            en:"In person — Longueuil"},
   "form.fmt2":       {fr:"En ligne — Google Meet",            en:"Online — Google Meet"},
   "form.fmt3":       {fr:"À discuter",                        en:"Let's discuss"},
   "form.fmtErr":     {fr:"Choisissez un format.",             en:"Pick a format."},
-  "form.msg":        {fr:"Sur quoi voulez-vous travailler?",  en:"What would you like to work on?"},
-  "form.msgPh":      {fr:"Quelques phrases sur ce qui vous amène...", en:"A few sentences about what brought you here..."},
+  "form.msg":        {fr:"Sur quoi veux-tu travailler?",  en:"What would you like to work on?"},
+  "form.msgPh":      {fr:"Quelques phrases sur ce qui t'amène...", en:"A few sentences about what brought you here..."},
   "form.msgErr":     {fr:"Un court message m'aide à me préparer.", en:"A short note helps me prepare."},
   "form.submit":     {fr:"Envoyer la demande",                en:"Send inquiry"},
   "form.note":       {fr:"Réponse sous 48 h · FR / EN",       en:"Reply within 48 h · FR / EN"},
-  "form.success":    {fr:"Merci — votre message est bien reçu. Je reviens vers vous sous 48 h.",
+  "form.success":    {fr:"Merci — ton message est bien reçu. Je reviens vers toi sous 48 h.",
                       en:"Thanks — your note is in. I'll be in touch within 48 hours."},
 
-  "footer.blurb":    {fr:"Coaching certifié en Programmation Neuro-Linguistique avec Kristof Robert. Cinq séances pour passer à la version de vous-même que vous voulez devenir. Montréal · en ligne.",
-                      en:"Certified NLP coaching with Kristof Robert. Five sessions to step into the version of yourself you want to become. Montréal · online."},
+  "footer.blurb":    {fr:"Coaching certifié en Programmation Neuro-Linguistique avec Kristof Robert. Cinq séances pour vivre ta vie en tes termes — bâtir une vie qui te ressemble. Longueuil · en ligne.",
+                      en:"Certified NLP coaching with Kristof Robert. Five sessions to step into the version of yourself you want to become. Longueuil · online."},
   "footer.navigate": {fr:"Naviguer",                          en:"Navigate"},
   "footer.elsewhere":{fr:"Ailleurs",                          en:"Elsewhere"},
   "footer.copy":     {fr:"© 2026 Holistik Performance · Tous droits réservés", en:"© 2026 Holistik Performance · All rights reserved"},
-  "footer.made":     {fr:"Montréal, QC",                      en:"Montréal, QC"},
+
+  "band.about.cap":  {fr:"Préparation de séance",            en:"Session prep"},
+  "band.about.q":    {fr:"Avant chaque séance, j'écris. <em>Tes mots, tes patterns, tes prochains pas.</em> Pour qu'on arrive prêts à avancer.",
+                      en:"Before every session, I write. <em>Your words, your patterns, your next steps.</em> So we arrive ready to move."},
+  "band.about.meta": {fr:"Longueuil · Pratique quotidienne",   en:"Longueuil · Daily practice"},
+
+  "band.nlp.cap":    {fr:"PNL en pratique",                  en:"NLP in practice"},
+  "band.nlp.q":      {fr:"Pas une thérapie. <em class='serif-italic'>Une méthode.</em>",
+                      en:"Not therapy. <em class='serif-italic'>A method.</em>"},
+  "band.nlp.meta":   {fr:"On regarde ce qui te bloque, on identifie le pattern, on en crée un nouveau qui te sert. Concret, structuré, et tourné vers l'avant.",
+                      en:"We look at what's blocking you, identify the pattern, and build a new one that serves you. Concrete, structured, forward-looking."},
+
+  "band.philo.cap":  {fr:"Kristof Robert · Coach PNL",        en:"Kristof Robert · NLP Coach"},
+  "footer.made":     {fr:"Longueuil, QC",                     en:"Longueuil, QC"},
 };
 
 function setLang(lang){
@@ -1439,12 +1818,6 @@ document.getElementById('langToggle').addEventListener('click', ()=>{
   const current = document.documentElement.getAttribute('lang') || 'fr';
   setLang(current === 'fr' ? 'en' : 'fr');
 });
-
-/* Auto-print: wait for fonts + a small grace period, then trigger print dialog. */
-(async function(){
-  try{ if(document.fonts && document.fonts.ready){ await document.fonts.ready; } }catch(e){}
-  setTimeout(()=>{ window.print(); }, 500);
-})();
 </script>
 
 </body>
