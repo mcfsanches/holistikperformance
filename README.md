@@ -5,11 +5,15 @@ Site one-page pour Kristof Robert · Coaching PNL · Longueuil, QC.
 ## Fichiers
 
 - `index.html` — page principale (servi à la racine par GitHub Pages)
-- `kristof.jpg` — portrait du hero
-- `logo.svg` — logo de marque
+- `Holistik Performance.html` — copie miroir d'`index.html` (sert de fichier de travail)
 - `Kristof Robert.html` — page « À propos » (longue bio)
 - `Client Intake Questionnaire.html` — formulaire d'accueil client
 - `Holistik Performance-print.html` — version imprimable
+- `site.webmanifest` — manifeste PWA + favicons
+- `img/` — toutes les images (portraits, logo, favicons)
+  - `logo-mark.png` — cerveau coloré (logo de marque)
+  - `hero-portrait.jpg`, `about-writing.jpg`, `nlp-pool.jpg`, `philosophy-couch.jpg` — portraits éditoriaux
+  - `favicon-*.png` — favicons (16, 32, 48, 180, 192, 512 px)
 
 ## Publier sur GitHub Pages
 
@@ -22,6 +26,8 @@ Site one-page pour Kristof Robert · Coaching PNL · Longueuil, QC.
 ## Mettre à jour le site
 
 Modifier `index.html` directement sur GitHub (crayon en haut à droite du fichier) ou via Git en local. Chaque commit redéploie automatiquement en ~30 sec.
+
+> Note : `Holistik Performance.html` est conservé comme copie de travail. Si tu modifies l'un, recopie le contenu dans l'autre pour qu'ils restent identiques.
 
 ## Domaine personnalisé (optionnel)
 
