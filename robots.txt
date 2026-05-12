@@ -6,4 +6,4 @@ Disallow: /Holistik%20Performance-print.html
 Disallow: /Kristof%20Robert.html
 Disallow: /Client%20Intake%20Questionnaire.html
 
-Sitemap: https://mcfsanches.github.io/holistikperformance/sitemap.xml
+Sitemap: https://holistikperformance.com/sitemap.xml
